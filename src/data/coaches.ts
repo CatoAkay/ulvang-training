@@ -1,7 +1,8 @@
 import type { Coach } from '../types';
-
-// TODO: Replace photo paths with actual images from Lightroom gallery
-// Adobe Lightroom share: https://lightroom.adobe.com/shares/c2ae63b881f148378c5b8947bade0033
+import lailaKveli from '../assets/lailaKveli.jpg';
+import jerryAhrlin from '../assets/jerryAhrlin.jpg';
+import joergenUlvang from '../assets/joergenUlvang.jpg';
+import aneUlvang from '../assets/aneUlvang.jpg';
 
 export const coaches: Coach[] = [
   {
@@ -25,8 +26,7 @@ export const coaches: Coach[] = [
       'Studerer psykologi ved Mittuniversitetet',
       'Ekspert i teknikktrening og treningsplanlegging',
     ],
-    // TODO: Replace with actual coach photo from Lightroom gallery
-    photo: undefined,
+    photo: lailaKveli,
   },
   {
     id: 'jerry-ahrlin',
@@ -49,8 +49,7 @@ export const coaches: Coach[] = [
       'Grunnlegger av Team Engcon (2019)',
       'Erfaren trener for mosjonister og eliteutøvere',
     ],
-    // TODO: Replace with actual coach photo from Lightroom gallery
-    photo: undefined,
+    photo: jerryAhrlin,
   },
   {
     id: 'jorgen-appelkvist-ulvang',
@@ -72,8 +71,7 @@ export const coaches: Coach[] = [
       'MSc idrettsfag, NTNU og Nord Universitet',
       'Spesialist i skadeforebygging og treningsbelastning',
     ],
-    // TODO: Replace with actual coach photo from Lightroom gallery
-    photo: undefined,
+    photo: joergenUlvang,
   },
   {
     id: 'ane-appelkvist-ulvang',
@@ -97,8 +95,6 @@ export const coaches: Coach[] = [
       'Trente med Team Engcon 2025',
       'Master i medier, kommunikasjon og IT',
     ],
-    // TODO: Replace with actual coach photo from Lightroom gallery
-    photo: undefined,
+    photo: aneUlvang,
   },
 ];
-

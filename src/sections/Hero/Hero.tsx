@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 // TODO: Replace with actual hero image from Lightroom gallery
 // https://lightroom.adobe.com/shares/c2ae63b881f148378c5b8947bade0033
-import heroImg from '../../assets/hero.png';
+import heroImg from '../../assets/hero.jpg';
 import styles from './Hero.module.css';
 
 function scrollToSection(id: string) {
