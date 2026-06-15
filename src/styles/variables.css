@@ -1,0 +1,55 @@
+:root {
+  /* ─── Background Colors ─── */
+  --color-bg:          #07090e;
+  --color-bg-2:        #0c1018;
+  --color-bg-3:        #111827;
+  --color-surface:     #141d2c;
+  --color-surface-2:   #1b2638;
+  --color-surface-3:   #22304a;
+
+  /* ─── Border ─── */
+  --color-border:      rgba(255, 255, 255, 0.07);
+  --color-border-2:    rgba(255, 255, 255, 0.12);
+
+  /* ─── Accent ─── */
+  --color-accent:      #5ba3c9;
+  --color-accent-2:    #82c4e0;
+  --color-accent-dim:  rgba(91, 163, 201, 0.12);
+  --color-accent-glow: rgba(91, 163, 201, 0.25);
+
+  /* ─── Text ─── */
+  --color-text:        #e8edf4;
+  --color-text-2:      #9baec2;
+  --color-text-muted:  #5a7080;
+
+  /* ─── Misc ─── */
+  --color-overlay:     rgba(7, 9, 14, 0.7);
+  --color-white:       #ffffff;
+
+  /* ─── Typography ─── */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* ─── Layout ─── */
+  --container-width:   1280px;
+  --container-padding: clamp(20px, 5vw, 80px);
+  --section-padding-y: clamp(80px, 10vw, 140px);
+
+  /* ─── Radius ─── */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+
+  /* ─── Transitions ─── */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.3s ease;
+  --transition-slow:   0.6s ease;
+
+  /* ─── Shadows ─── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 20px rgba(0,0,0,0.5);
+  --shadow-lg:  0 16px 48px rgba(0,0,0,0.6);
+  --shadow-accent: 0 0 30px rgba(91, 163, 201, 0.2);
+}
+

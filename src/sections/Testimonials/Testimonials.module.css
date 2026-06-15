@@ -1,0 +1,139 @@
+.section {
+  padding: var(--section-padding-y) 0;
+  background: var(--color-bg-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-border-2), transparent);
+}
+
+.header {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 64px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color var(--transition-base);
+}
+
+.card:hover {
+  border-color: rgba(91,163,201,0.25);
+}
+
+.quoteIcon {
+  color: var(--color-accent);
+  opacity: 0.5;
+}
+
+.quote {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-text-2);
+  flex: 1;
+  font-style: italic;
+}
+
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.person {}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.details {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.achievement {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.disclaimer {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .achievement {
+    display: none;
+  }
+}
+
