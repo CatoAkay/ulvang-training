@@ -6,100 +6,174 @@ Premium Nordic ski training website for a coaching concept led by former elite a
 
 Deploy to Vercel: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-## 🏔️ About the Project
+---
 
-Ulvang Training is a digital coaching concept for cross-country skiing and Ski Classics. The website presents the concept, the coaches, training offerings, and collects interest registrations.
+## 🏔️ Om prosjektet
+
+Ulvang Training er et digitalt treningskonsept for langrenn og Ski Classics. Nettsiden presenterer konseptet, trenerne, treningsinnholdet og samler inn interessemeldinger fra potensielle deltakere.
+
+---
+
+## ✅ Nåværende status
+
+Nettsiden er fullbygget og klar for produksjon.
+
+### Implementerte seksjoner
+
+| Seksjon | Beskrivelse |
+|---|---|
+| **Navigation** | Sticky navbar, transparent → mørk ved scroll, mobilmeny |
+| **Hero** | Fullskjerm med hero-bilde, animert overskrift, stats-bar og CTA |
+| **Konseptet** | Tokolonne-layout med sesongkronikk-kort |
+| **Hva du får** | 7 animerte feature-kort (treningsprogram, styrke, teknikk, digitale økter, samlinger, oppfølging, fellesskap) |
+| **Trenere** | 4-kolonne grid med coachkort – klikk åpner animert modal med fullbiografi |
+| **Samlinger** | Samlingsoversikt med feature-liste |
+| **Hvorfor oss** | Tillitstbygging med statistikk og Team Engcon-kort |
+| **Deltakere** | Testimonials (placeholder, klar til å erstattes) |
+| **Meld interesse** | React Hook Form med validering, simulert innsending, suksess-tilstand |
+| **FAQ** | Tilgjengelig trekkspillkomponent med 8 spørsmål |
+| **Footer** | Navigasjon, kontakt, trenere, sosiale medier, copyright og utviklerkredit |
+
+### Bilder
+
+Alle bilder er lagt inn og kobles opp via Vite-import (hash-navngitt og cacheoptimalisert):
+
+| Fil | Brukes i |
+|---|---|
+| `src/assets/hero.jpg` | Hero-seksjon |
+| `src/assets/lailaKveli.jpg` | Laila Kveli – coachkort og modal |
+| `src/assets/jerryAhrlin.jpg` | Jerry Ahrlin – coachkort og modal |
+| `src/assets/joergenUlvang.jpg` | Jørgen Appelkvist Ulvang – coachkort og modal |
+| `src/assets/aneUlvang.jpg` | Ane Appelkvist Ulvang – coachkort og modal |
+
+---
 
 ## 🛠️ Tech Stack
 
-- **React 19** + **TypeScript**
-- **Vite 8** – build tool
-- **Framer Motion** – animations
-- **Lucide React** – icons
-- **React Hook Form** – form handling
-- **CSS Modules** – scoped styling
-- **Google Fonts** – Space Grotesk + Inter
+| Teknologi | Versjon | Bruk |
+|---|---|---|
+| React | 19 | UI-rammeverk |
+| TypeScript | 6 | Typesikkerhet |
+| Vite | 8 | Build-verktøy |
+| Framer Motion | 12 | Animasjoner |
+| Lucide React | latest | Ikoner |
+| React Hook Form | 7 | Skjemahåndtering |
+| CSS Modules | – | Scopede stiler |
+| Space Grotesk + Inter | – | Google Fonts |
 
-## 🏗️ Project Structure
+---
+
+## 🏗️ Prosjektstruktur
 
 ```
 src/
-├── assets/          # Static assets (hero image, etc.)
+├── assets/              # Bilder (hero, coaches)
 ├── components/
-│   ├── Navigation/  # Sticky nav with mobile menu
-│   ├── CoachModal/  # Animated coach bio modal
-│   └── FaqAccordion/ # Accessible FAQ accordion
+│   ├── Navigation/      # Sticky nav med mobilmeny
+│   ├── CoachModal/      # Animert modal med trenerbiografi
+│   └── FaqAccordion/    # Tilgjengelig FAQ-trekkspill
 ├── data/
-│   ├── coaches.ts   # Coach profiles and biographies
-│   ├── faq.ts       # FAQ content
-│   └── testimonials.ts # Testimonials (placeholders)
+│   ├── coaches.ts       # Trenerdata og biografier
+│   ├── faq.ts           # FAQ-innhold
+│   └── testimonials.ts  # Testimonials (placeholder)
 ├── hooks/
 │   └── useScrollPosition.ts
 ├── sections/
-│   ├── Hero/         # Full-screen hero
-│   ├── About/        # Concept explanation
-│   ├── Features/     # What you get (7 cards)
-│   ├── Coaches/      # Coach grid + modal
-│   ├── TrainingCamps/ # Physical camps info
-│   ├── WhyUs/        # Trust section with stats
-│   ├── Testimonials/ # Social proof
-│   ├── Contact/      # Interest registration form
-│   ├── FAQ/          # Accordion FAQ
-│   └── Footer/       # Footer with nav
+│   ├── Hero/
+│   ├── About/
+│   ├── Features/
+│   ├── Coaches/
+│   ├── TrainingCamps/
+│   ├── WhyUs/
+│   ├── Testimonials/
+│   ├── Contact/
+│   ├── FAQ/
+│   └── Footer/
 ├── styles/
-│   └── variables.css # Design tokens (colors, spacing)
+│   └── variables.css    # Design tokens
 └── types/
-    └── index.ts      # TypeScript interfaces
+    └── index.ts
 ```
 
-## 🚀 Getting Started
+---
+
+## 🚀 Kom i gang
 
 ```bash
-npm install
-npm run dev      # Start dev server
-npm run build    # Build for production
-npm run preview  # Preview production build
+# Installer avhengigheter
+pnpm install
+
+# Start dev-server
+pnpm dev
+
+# Bygg for produksjon
+pnpm build
+
+# Forhåndsvis produksjonsbygg
+pnpm preview
 ```
 
-## 📸 Images
+> **Node-versjon:** Prosjektet bruker Node 22 (LTS). Se `.nvmrc`.  
+> Bruk `nvm use` i prosjektmappen for å bytte automatisk.
 
-Images should come from:
-`https://lightroom.adobe.com/shares/c2ae63b881f148378c5b8947bade0033`
+---
 
-To replace images:
-1. **Hero image** – Replace `src/assets/hero.png`
-2. **Coach photos** – Set `photo` field in `src/data/coaches.ts`
-3. **OG image** – Add `public/og-image.jpg`
+## 🚢 Deploy til Vercel
 
-## 📋 TODO Before Launch
+Prosjektet er konfigurert for Vercel via `vercel.json`:
 
-- [ ] Replace `hero.png` with actual high-res hero photo
-- [ ] Add coach photos to `src/data/coaches.ts`
-- [ ] Add `public/og-image.jpg`
-- [ ] Connect contact form to backend (see `src/sections/Contact/Contact.tsx`)
-- [ ] Replace placeholder testimonials with real ones
-- [ ] Add actual social media links in `src/sections/Footer/Footer.tsx`
-- [ ] Update contact email in Footer
-- [ ] Set actual domain in `index.html` Open Graph tags
+```json
+{
+  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "outputDirectory": "dist"
+}
+```
 
-## 📬 Contact Form Integration
+**Steg:**
+1. Push til GitHub
+2. Importer repo på [vercel.com/new](https://vercel.com/new)
+3. Vercel leser `vercel.json` og `.nvmrc` automatisk
+4. Deploy kjøres med pnpm og Node 22
 
-The form currently simulates submission. See `src/sections/Contact/Contact.tsx` – the `submitForm` function has TODO comments. Options: Resend, Formspree, Netlify Forms, or a custom API endpoint.
+---
 
-## 🚢 Deploy to Vercel
+## 📋 Gjenstående før lansering
 
-1. Push to GitHub
-2. Import at [vercel.com/new](https://vercel.com/new)
-3. Vercel auto-detects Vite – `vercel.json` is pre-configured
+- [ ] Erstatt placeholder-testimonials med ekte tilbakemeldinger fra deltakere
+- [ ] Koble kontaktskjema til backend/e-posttjeneste (se `src/sections/Contact/Contact.tsx`)
+- [ ] Legg til faktiske lenker til sosiale medier i Footer
+- [ ] Oppdater kontakt-e-post i Footer
+- [ ] Sett korrekt domene i `index.html` (Open Graph `og:url`)
+- [ ] Legg til `public/og-image.jpg` for sosiale delinger
 
-## 🎨 Design Tokens
+---
 
-All tokens are in `src/styles/variables.css`:
+## 📬 Kontaktskjema – backend-integrasjon
 
-| Token | Value | Use |
+Skjemaet simulerer innsending for øyeblikket. Se `submitForm`-funksjonen i `src/sections/Contact/Contact.tsx` for TODO-kommentarer. Anbefalte alternativer:
+
+- [Resend](https://resend.com) – e-post-API
+- [Formspree](https://formspree.io) – ingen backend nødvendig
+- [Netlify Forms](https://docs.netlify.com/forms/setup/) – hvis deployet på Netlify
+- Egendefinert API-endepunkt
+
+---
+
+## 🎨 Design tokens
+
+Alle tokens er definert i `src/styles/variables.css`:
+
+| Token | Verdi | Bruk |
 |---|---|---|
-| `--color-bg` | `#07090e` | Page background |
-| `--color-accent` | `#5ba3c9` | Ice blue accent |
-| `--color-text` | `#e8edf4` | Primary text |
-| `--font-heading` | Space Grotesk | Headings |
-| `--font-body` | Inter | Body copy |
+| `--color-bg` | `#07090e` | Sidebakgrunn |
+| `--color-accent` | `#5ba3c9` | Isblå aksent |
+| `--color-text` | `#e8edf4` | Primærtekst |
+| `--font-heading` | Space Grotesk | Overskrifter |
+| `--font-body` | Inter | Brødtekst |
+
+---
+
+## 👤 Utvikler
+
+Designed & Developed by [Cato Akay](https://www.linkedin.com/in/cato-hilmi-akay-5058a7173/)
