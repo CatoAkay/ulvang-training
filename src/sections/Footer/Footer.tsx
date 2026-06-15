@@ -120,6 +120,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Copyright + legal */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
             © {year} Ulvang Training. Alle rettigheter forbeholdt.
@@ -131,8 +132,23 @@ export default function Footer() {
             <button className={styles.bottomLink}>Cookies</button>
           </div>
         </div>
+
+        {/* Developer credit */}
+        <div className={styles.devCredit}>
+          <p className={styles.devCreditText}>
+            Designed &amp; Developed by{' '}
+            <a
+              href="https://www.linkedin.com/in/cato-hilmi-akay-5058a7173/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.devCreditLink}
+              aria-label="Cato Akay – LinkedIn (opens in new tab)"
+            >
+              Cato Akay
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
 }
-
