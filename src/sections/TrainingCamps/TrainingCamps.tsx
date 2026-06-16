@@ -1,7 +1,11 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Calendar, MapPin, Users, CheckCircle, Mountain, Star } from 'lucide-react';
+import { Calendar, MapPin, Users, CheckCircle, Mountain, ChevronRight, AlertCircle } from 'lucide-react';
 import styles from './TrainingCamps.module.css';
+
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
 
 const camps = [
   {
@@ -29,6 +33,13 @@ const featureItems = [
   { text: <><strong>Vasaloppet 2027</strong> – felles forberedelse og støtte</> },
 ];
 
+const nextCampHighlights = [
+  'Teknikkanalyse på rulleski',
+  'Styrketreningsøkt med trenerne',
+  'Faglig gjennomgang av sesongplan',
+  'Fellesøkt og sosialt program',
+];
+
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
 
 const fadeUp = {
@@ -49,6 +60,8 @@ export default function TrainingCamps() {
     <section id="samlinger" className={styles.section} aria-labelledby="camps-heading">
       <div className={styles.bgGlow} aria-hidden="true" />
       <div className="container">
+
+        {/* Section header */}
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
@@ -65,29 +78,69 @@ export default function TrainingCamps() {
           </p>
         </motion.div>
 
-        {/* First camp spotlight */}
+        {/* Neste samling card */}
         <motion.div
-          className={styles.firstCamp}
-          initial={{ opacity: 0, y: 24 }}
+          className={styles.nextCamp}
+          initial={{ opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.15 }}
+          transition={{ duration: 0.75, delay: 0.1 }}
+          aria-label="Neste samling: 4.–6. september 2026, Mora, Sverige"
         >
-          <div className={styles.firstCampBadge}>
-            <Star size={12} aria-hidden="true" />
-            Første samling
-          </div>
-          <div className={styles.firstCampDetails}>
-            <div className={styles.firstCampDate}>4.–6. september 2026</div>
-            <div className={styles.firstCampLocation}>
-              <MapPin size={14} aria-hidden="true" />
-              Mora, Sverige
+          <div className={styles.nextCampLeft}>
+            <div className={styles.nextCampEyebrow}>
+              <span className={styles.nextCampPulse} aria-hidden="true" />
+              Neste samling
             </div>
+            <div className={styles.nextCampDateBlock}>
+              <div className={styles.nextCampMonth}>September 2026</div>
+              <div className={styles.nextCampDays}>4.–6.</div>
+            </div>
+            <div className={styles.nextCampMeta}>
+              <div className={styles.nextCampMetaItem}>
+                <MapPin size={14} aria-hidden="true" />
+                Mora, Sverige
+              </div>
+              <div className={styles.nextCampMetaItem}>
+                <Calendar size={14} aria-hidden="true" />
+                3 dager
+              </div>
+            </div>
+            <p className={styles.nextCampDesc}>
+              Høstens første samling setter tonen for sesongen –
+              teknikk på rulleski, styrkearbeid og fellesskap med trenerne i Mora.
+            </p>
           </div>
-          <p className={styles.firstCampNote}>
-            Høstens første samling setter tonen for sesongen – teknikk på rulleski, styrkearbeid og fellesskap med trenerne.
-          </p>
+
+          <div className={styles.nextCampDivider} aria-hidden="true" />
+
+          <div className={styles.nextCampRight}>
+            <div className={styles.nextCampProgramLabel}>Programmet inkluderer</div>
+            <ul className={styles.nextCampList} aria-label="Programmet inkluderer">
+              {nextCampHighlights.map((item, i) => (
+                <li key={i} className={styles.nextCampListItem}>
+                  <CheckCircle size={13} aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className={styles.nextCampSpotsWrapper}>
+              <div className={styles.nextCampSpots}>
+                <AlertCircle size={14} aria-hidden="true" />
+                Begrenset antall plasser
+              </div>
+            </div>
+            <button
+              className={styles.nextCampCta}
+              onClick={() => scrollToSection('kontakt')}
+              aria-label="Sikre din plass på samlingen i Mora"
+            >
+              Sikre din plass
+              <ChevronRight size={16} aria-hidden="true" />
+            </button>
+          </div>
         </motion.div>
 
+        {/* Two-column info */}
         <motion.div
           ref={ref}
           className={styles.content}
@@ -106,7 +159,6 @@ export default function TrainingCamps() {
               Det er også mulig å melde seg på samlinger uten fast medlemskap i
               treningsgruppen – men som ordinært medlem får du en betydelig rabatt.
             </motion.p>
-
             <motion.div variants={stagger} className={styles.camps}>
               {camps.map((c, i) => (
                 <motion.div key={i} variants={fadeUp} className={styles.campCard}>
