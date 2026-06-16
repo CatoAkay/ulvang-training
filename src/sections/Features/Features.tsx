@@ -28,7 +28,7 @@ const features = [
     icon: <Video size={24} />,
     tag: 'Inkludert',
     title: 'Teknikkanalyse',
-    desc: 'Videoanalyse av skiinnsats og teknikk med tilbakemelding fra erfarne trenere.',
+    desc: 'Videoanalyse av teknikk på rulleski og ski – med konkret tilbakemelding fra erfarne trenere etter begge typer underlag.',
   },
   {
     icon: <Monitor size={24} />,
@@ -40,7 +40,7 @@ const features = [
     icon: <Users size={24} />,
     tag: 'Fysisk',
     title: 'Samlinger',
-    desc: '2–3 fysiske samlinger i løpet av høsten. Samlet fellesskap, teknikk på snø og motiverende rammer.',
+    desc: '2–3 fysiske samlinger i løpet av høsten. Teknikk på rulleski og snø, fellesskap og motiverende rammer.',
   },
   {
     icon: <HeartPulse size={24} />,

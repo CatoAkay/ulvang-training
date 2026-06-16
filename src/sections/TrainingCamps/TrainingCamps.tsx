@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Calendar, MapPin, Users, CheckCircle, Mountain } from 'lucide-react';
+import { Calendar, MapPin, Users, CheckCircle, Mountain, Star } from 'lucide-react';
 import styles from './TrainingCamps.module.css';
 
 const camps = [
   {
     icon: <Calendar size={22} />,
     title: 'Høstsamlinger',
-    desc: '2–3 fysiske samlinger gjennom høsten med fokus på teknikk, styrke og fellesskap. Datoer kunngjøres til medlemmer.',
+    desc: '2–3 fysiske samlinger gjennom høsten med fokus på teknikk, styrke og fellesskap.',
   },
   {
     icon: <MapPin size={22} />,
@@ -22,7 +22,7 @@ const camps = [
 ];
 
 const featureItems = [
-  { text: <><strong>Teknikk på snø</strong> – grundig gjennomgang og analyse</> },
+  { text: <><strong>Teknikkanalyse på rulleski og ski</strong> – grundig gjennomgang og analyse</> },
   { text: <><strong>Styrketreningsøkter</strong> med trenerveiledning</> },
   { text: <><strong>Faglige presentasjoner</strong> om periodisering og restitusjon</> },
   { text: <><strong>Fellesøkter</strong> og motiverende miljø</> },
@@ -65,6 +65,29 @@ export default function TrainingCamps() {
           </p>
         </motion.div>
 
+        {/* First camp spotlight */}
+        <motion.div
+          className={styles.firstCamp}
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.15 }}
+        >
+          <div className={styles.firstCampBadge}>
+            <Star size={12} aria-hidden="true" />
+            Første samling
+          </div>
+          <div className={styles.firstCampDetails}>
+            <div className={styles.firstCampDate}>4.–6. september 2026</div>
+            <div className={styles.firstCampLocation}>
+              <MapPin size={14} aria-hidden="true" />
+              Mora, Sverige
+            </div>
+          </div>
+          <p className={styles.firstCampNote}>
+            Høstens første samling setter tonen for sesongen – teknikk på rulleski, styrkearbeid og fellesskap med trenerne.
+          </p>
+        </motion.div>
+
         <motion.div
           ref={ref}
           className={styles.content}
@@ -75,8 +98,8 @@ export default function TrainingCamps() {
           <div className={styles.left}>
             <motion.p variants={fadeUp} className={styles.bodyText}>
               Som en del av treningskonseptet inviterer vi til fysiske samlinger gjennom
-              høstssongen. Her møtes du ansikt til ansikt med trenerne og de andre deltakerne,
-              og vi arbeider konkret med teknikk, styrke og det mentale aspektet ved
+              høstsesongen. Her møtes du ansikt til ansikt med trenerne og de andre deltakerne,
+              og vi arbeider konkret med teknikk på rulleski og snø, styrke og det mentale aspektet ved
               langrenn.
             </motion.p>
             <motion.p variants={fadeUp} className={styles.bodyText}>
@@ -127,4 +150,3 @@ export default function TrainingCamps() {
     </section>
   );
 }
-

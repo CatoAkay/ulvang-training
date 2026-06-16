@@ -69,7 +69,7 @@ export default function Hero() {
 
             <motion.p variants={item} className={styles.description}>
               Digital treningsveiledning, ukentlige treningsøkter og fysiske samlinger –
-              ledet av Laila Kveli, Jerry Ahrlin og Team Engcon-trenerne.
+              ledet av Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang.
               For deg som vil gjennomføre eller forbedre deg i langrenn og Ski Classics.
             </motion.p>
 
