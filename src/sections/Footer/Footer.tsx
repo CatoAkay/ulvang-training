@@ -35,7 +35,7 @@ export default function Footer() {
                 <Mountain size={20} strokeWidth={2.5} />
               </div>
               <div className={styles.logoText}>
-                <span className={styles.logoName}>Ulvang Training</span>
+                <span className={styles.logoName}>XC Performance</span>
                 <span className={styles.logoSub}>Nordic Endurance</span>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function Footer() {
             {/* TODO: Replace with actual contact information */}
             <div className={styles.contactItem}>
               <Mail size={14} />
-              <span>kontakt@ulvangtraining.no</span>
+              <span>kontakt@xcperformance.no</span>
             </div>
             <div className={styles.contactItem}>
               <MapPin size={14} />
@@ -123,7 +123,7 @@ export default function Footer() {
         {/* Copyright + legal */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {year} Ulvang Training. Alle rettigheter forbeholdt.
+            © {year} XC Performance. Alle rettigheter forbeholdt.
           </p>
           <div className={styles.bottomLinks}>
             {/* TODO: Add actual privacy policy and terms pages */}

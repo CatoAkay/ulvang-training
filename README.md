@@ -1,4 +1,4 @@
-# Ulvang Training
+# XC Performance
 
 Premium Nordic ski training website for a coaching concept led by former elite athletes Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang, and Ane Appelkvist Ulvang.
 
@@ -10,7 +10,7 @@ Deploy to Vercel: [![Deploy with Vercel](https://vercel.com/button)](https://ver
 
 ## 🏔️ Om prosjektet
 
-Ulvang Training er et digitalt treningskonsept for langrenn og Ski Classics. Nettsiden presenterer konseptet, trenerne, treningsinnholdet og samler inn interessemeldinger fra potensielle deltakere.
+XC Performance er et digitalt treningskonsept for langrenn og Ski Classics. Nettsiden presenterer konseptet, trenerne, treningsinnholdet og samler inn interessemeldinger fra potensielle deltakere.
 
 ---
 

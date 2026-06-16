@@ -4,13 +4,13 @@ import type { Testimonial } from '../types';
 
 export const testimonials: Testimonial[] = [
   {
-    quote: 'Etter ett år med strukturert trening under Ulvang Training fullführte jeg mitt første Vasaloppet. Oppfölgingen og de digitale treningsøktene var helt avgjørende for at jeg kom i mål.',
+    quote: 'Etter ett år med strukturert trening under XC Performance fullführte jeg mitt første Vasaloppet. Oppfölgingen og de digitale treningsøktene var helt avgjørende for at jeg kom i mål.',
     name: 'Anders K.',
     details: 'Oslo, 44 år',
     achievement: 'Fullførte Vasaloppet 2026',
   },
   {
-    quote: 'Jeg har trent i mange år uten system. Med Ulvang Training fikk jeg endelig en plan som faktisk fungerte – og trenere som virkelig bryr seg om fremgangen din.',
+    quote: 'Jeg har trent i mange år uten system. Med XC Performance fikk jeg endelig en plan som faktisk fungerte – og trenere som virkelig bryr seg om fremgangen din.',
     name: 'Maria L.',
     details: 'Bergen, 38 år',
     achievement: 'Forbedret seg 45 min i Birkebeinerrennet',

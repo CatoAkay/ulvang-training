@@ -44,14 +44,14 @@ export default function Navigation() {
             onClick={() => scrollToSection('hero')}
             role="button"
             tabIndex={0}
-            aria-label="Tilbake til toppen"
+            aria-label="Tilbake til toppen – XC Performance"
             onKeyDown={(e) => e.key === 'Enter' && scrollToSection('hero')}
           >
             <div className={styles.logoMark}>
               <Mountain size={20} strokeWidth={2.5} />
             </div>
             <div className={styles.logoText}>
-              <span className={styles.logoName}>Ulvang Training</span>
+              <span className={styles.logoName}>XC Performance</span>
               <span className={styles.logoSub}>Nordic Endurance</span>
             </div>
           </div>
