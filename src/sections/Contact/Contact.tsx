@@ -1,18 +1,34 @@
-import { useState } from 'react';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Send, CheckCircle, Calendar, Laptop, Users } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { Send, CheckCircle, Calendar, Laptop, Users, AlertTriangle } from 'lucide-react';
 import type { ContactFormData } from '../../types';
 import styles from './Contact.module.css';
 
-// TODO: Replace this simulated submission with real backend/email service integration
-// Options: Resend, Formspree, Netlify Forms, custom API endpoint, etc.
+const EMAILJS_SERVICE_ID  = 'service_2iorjdh';
+const EMAILJS_TEMPLATE_ID = 'template_39rs5hy';
+// Public key is safe to expose in client-side code (it is not a secret key).
+// Set VITE_EMAILJS_PUBLIC_KEY in your .env file (see .env.example).
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
 async function submitForm(data: ContactFormData): Promise<void> {
-  // TODO: Replace with actual API call, e.g.:
-  // await fetch('/api/interest', { method: 'POST', body: JSON.stringify(data) });
-  console.log('Form submitted (simulation):', data);
-  await new Promise((resolve) => setTimeout(resolve, 1200)); // Simulate network delay
+  if (!EMAILJS_PUBLIC_KEY) {
+    throw new Error('VITE_EMAILJS_PUBLIC_KEY is not set. Check your .env file.');
+  }
+  await emailjs.send(
+    EMAILJS_SERVICE_ID,
+    EMAILJS_TEMPLATE_ID,
+    {
+      name:       data.navn,
+      email:      data.epost,
+      phone:      data.telefon ?? '',
+      experience: data.erfaring,
+      goal:       data.maal,
+      message:    data.melding ?? '',
+    },
+    { publicKey: EMAILJS_PUBLIC_KEY },
+  );
 }
 
 const infoItems = [
@@ -45,6 +61,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   const {
     register,
@@ -54,11 +71,16 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsLoading(true);
+    setSendError(null);
     try {
       await submitForm(data);
       setSubmitted(true);
     } catch (err) {
-      console.error('Submission error:', err);
+      console.error('EmailJS error:', err);
+      setSendError(
+        'Noe gikk galt ved sending. Sjekk internettforbindelsen og prøv igjen, ' +
+        'eller kontakt oss direkte på kontakt@xcperformance.no',
+      );
     } finally {
       setIsLoading(false);
     }
@@ -232,6 +254,13 @@ export default function Contact() {
                         {...register('melding')}
                       />
                     </div>
+
+                    {sendError && (
+                      <div className={styles.sendError} role="alert">
+                        <AlertTriangle size={15} aria-hidden="true" />
+                        {sendError}
+                      </div>
+                    )}
 
                     <button
                       type="submit"
