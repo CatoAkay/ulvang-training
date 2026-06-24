@@ -340,24 +340,24 @@ export const en: Translation = {
   testimonials: {
     label: 'Participants',
     heading: 'What those training with us say',
-    disclaimer: '* Illustrative examples – to be replaced with genuine feedback from participants',
+    disclaimer: 'Feedback from participants',
     items: [
       {
         quote: 'After a year of structured training with XC Performance I completed my first Vasaloppet. The follow-up and digital sessions were absolutely crucial to me crossing the finish line.',
-        name: 'Anders K.',
-        details: 'Oslo, age 44',
+        name: 'Martin',
+        details: '31',
         achievement: 'Completed Vasaloppet 2026',
       },
       {
         quote: 'I had trained for years without any system. With XC Performance I finally got a plan that actually worked – and coaches who genuinely care about your progress.',
-        name: 'Maria L.',
-        details: 'Bergen, age 38',
+        name: 'Sigve',
+        details: '32 år',
         achievement: 'Improved by 45 min at Birkebeinerrennet',
       },
       {
         quote: 'The combination of digital follow-up and physical camps is perfect for those of us spread across the country. The community is unique and my motivation has never been higher.',
-        name: 'Thomas H.',
-        details: 'Tromsø, age 51',
+        name: 'Hanna',
+        details: '41 år',
         achievement: 'Ski Classics debut 2026',
       },
     ],

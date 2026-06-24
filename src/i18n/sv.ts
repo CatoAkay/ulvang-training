@@ -15,14 +15,14 @@ export const sv: Translation = {
   },
 
   hero: {
-    badge: 'Längdskidåkning & Ski Classics',
+    badge: 'Längdskidåkning & langløp',
     headlineLine1: 'Träna som',
     headlineAccent: 'en elitidrottare',
     sub: 'Strukturerad skidträning',
     description:
       'Ta din träning till nästa nivå med strukturerad uppföljning från tidigare elitåkare.\n' +
       'Genom digitala träningsplaner, onlineträning och inspirerande läger får du tillgång till kunskap och erfarenhet från Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang och Ane Appelkvist Ulvang.\n' +
-      'För dig som vill utvecklas som längdskidåkare, genomföra Ski Classics eller nå nya mål i skidspåret.',
+      'För dig som vill utvecklas som längdskidåkare, genomföra langløp eller nå nya mål i skidspåret.',
     ctaPrimary: 'Anmäl intresse',
     ctaSecondary: 'Läs mer',
     scrollText: 'Scrolla',
@@ -39,7 +39,7 @@ export const sv: Translation = {
     heading: 'Strukturerad träning\nhela året',
     body: [
       'Vi är fyra tidigare längdskidåkare på elitnivå som har gått samman för att ge dig tillgång till elituppföljning – oavsett nivå. Konceptet kombinerar strukturerad digital coaching med värdet av inspirerande fysiska läger.',
-      'Som deltagare får du ett heltäckande upplägg anpassat efter dina mål – oavsett om du siktar mot Vasaloppet, Ski Classics eller helt nya skidmål.',
+      'Som deltagare får du ett heltäckande upplägg anpassat efter dina mål – oavsett om du siktar mot Vasaloppet, langløp eller helt nya skidmål.',
     ],
     pillars: [
       { title: 'Digital träningsvägledning', desc: 'Personligt träningsprogram och uppföljning hela året – alltid tillgängligt digitalt.' },
@@ -100,7 +100,7 @@ export const sv: Translation = {
         role: 'Tränare & Grundare',
         shortBio: '2:a i Vasaloppet två år i rad. Pionjär inom stakning som tävlingsstrategi.',
         fullBio: [
-          'Jag är 48 år gammal och bor i Östersund. 2019 startade jag tillsammans med min fru Laila Kveli upp Team Engcon som sedan dess tävlar i Ski Classics.',
+          'Jag är 48 år gammal och bor i Östersund. 2019 startade jag tillsammans med min fru Laila Kveli upp Team Engcon som sedan dess tävlar i langløp.',
           'Idag jobbar jag både med teamet och med friskvård inom företaget.',
           'Jag har alltid drivits av att utveckla och testa mig fram för att nå mina uppsatta mål. Efter några år inom den traditionella skidåkningen så ändrade jag fokus och började köra långlopp 2006, där stakningen blev ett allt viktigare vapen för att vinna.',
           'Jag var 2:a i Vasaloppet 2006 och 2007, och i Vasaloppet 2008 bestämde jag mig för att staka loppet och slutade då på en 3:e plats.',
@@ -133,19 +133,19 @@ export const sv: Translation = {
       },
       {
         role: 'Tränare & Idrottare',
-        shortBio: 'Nyligen avslutad karriär som elitatlet med sprintbakgrund. Deltog i Ski Classics vintern 2025/26.',
+        shortBio: 'Nyligen avslutad karriär som elitatlet med sprintbakgrund. Deltog i langløp vintern 2025/26.',
         fullBio: [
           'Jag är 31 år, bor i Trondheim och har ett år kvar på en master i media, kommunikation och informationsteknologi.',
           'Jag har sysslat med längdskidåkning hela livet och har haft förmånen att uppleva många år som elitatlet på nationell och internationell nivå, med sprint som huvudfokus.',
           'Efter många år som elitatlet bestämde jag mig våren 2026 för att avsluta karriären som professionell längdskidåkare. Genom karriären har jag lärt mig mycket om vad som krävs för att utvecklas över tid – både fysiskt och mentalt – och hur viktig kontinuitet, motivation och träningsglädje är för att lyckas.',
-          'Även om jag har en bakgrund från traditionell längdskidåkning har intresset för längdlopp vuxit de senaste åren. Sommaren och hösten 2025 tränade jag mycket med Team Engcon, vilket gav mig värdefull insikt i träningsvardagen och de krav som ställs i Ski Classics.',
-          'Vintern 2025/26 deltog jag i fyra Ski Classics-tävlingar och fick uppleva både utmaningarna och fascinationen med denna form av skidåkning.',
+          'Även om jag har en bakgrund från traditionell längdskidåkning har intresset för längdlopp vuxit de senaste åren. Sommaren och hösten 2025 tränade jag mycket med Team Engcon, vilket gav mig värdefull insikt i träningsvardagen och de krav som ställs i langløp.',
+          'Vintern 2025/26 deltog jag i fyra langløp-tävlingar och fick uppleva både utmaningarna och fascinationen med denna form av skidåkning.',
           'Jag brinner för att dela med mig av de erfarenheter jag samlat på mig under många år i skidsporten, och hjälpa andra att nå sina mål – oavsett om målet är att genomföra sitt första längdlopp, förbättra placeringar i tävlingar eller helt enkelt få mer ut av träningen.',
         ],
         achievements: [
           'Elitatlet på nationell och internationell nivå',
           'Sprintspecialist inom traditionell längdskidåkning',
-          'Deltog i 4 Ski Classics-tävlingar 2025/26',
+          'Deltog i 4 langløp-tävlingar 2025/26',
           'Tränade med Team Engcon 2025',
           'Master i media, kommunikation och IT',
         ],
@@ -319,7 +319,7 @@ export const sv: Translation = {
       { title: 'Tidigare elitidrottare', desc: 'Alla tränare har tävlat på nationell eller internationell nivå och känner vägen till toppen.' },
       { title: 'Individuell uppföljning', desc: 'Du är inte bara ett nummer. Tränarna känner dig och dina mål och justerar upplägget därefter.' },
       { title: 'Vetenskaplig approach', desc: 'Periodisering, belastningsstyrning och teknikarbete baserat på forskning och eliterfaren­het.' },
-      { title: 'Ski Classics-expertis', desc: 'Direkt koppling till Team Engcon – världens bästa längdskidlag i Ski Classics-serien.' },
+      { title: 'Langløp-expertis', desc: 'Direkt koppling till Team Engcon – världens bästa längdskidlag i langløp-serien.' },
     ],
     stats: [
       { value: '2×', desc: 'Vasaloppsegrar (Laila Kveli 2013 & 2014)' },
@@ -329,36 +329,36 @@ export const sv: Translation = {
     ],
     teamCard: {
       title: 'Team Engcon',
-      desc: 'Grundat av Laila Kveli och Jerry Ahrlin 2019. Idag världens ledande Ski Classics-lag – och kärnan i detta koncept.',
+      desc: 'Grundat av Laila Kveli och Jerry Ahrlin 2019. Idag världens ledande langløp-lag – och kärnan i detta koncept.',
     },
     classicsCard: {
-      title: 'Ski Classics-expertis',
-      desc: 'Med direkt erfarenhet från Vasaloppet, Birkebeinerrennet och övriga Ski Classics-lopp ger vi dig unik insikt och förberedelse.',
+      title: 'Langløp-expertis',
+      desc: 'Med direkt erfarenhet från Vasaloppet, Birkebeinerrennet och övriga langløp-lopp ger vi dig unik insikt och förberedelse.',
     },
   },
 
   testimonials: {
     label: 'Deltagare',
     heading: 'Det säger de som tränar med oss',
-    disclaimer: '* Illustrativa exempel – ersätts med äkta återkoppling från deltagare',
+    disclaimer: 'Återkoppling från deltagare',
     items: [
       {
         quote: 'Efter ett år med strukturerad träning under XC Performance genomförde jag mitt första Vasaloppet. Uppföljningen och de digitala träningspassen var helt avgörande för att jag kom i mål.',
-        name: 'Anders K.',
-        details: 'Oslo, 44 år',
+        name: 'Martin',
+        details: '31',
         achievement: 'Genomförde Vasaloppet 2026',
       },
       {
         quote: 'Jag har tränat i många år utan system. Med XC Performance fick jag äntligen en plan som faktiskt fungerade – och tränare som verkligen bryr sig om din framgång.',
-        name: 'Maria L.',
-        details: 'Bergen, 38 år',
+        name: 'Sigve',
+        details: '32 år',
         achievement: 'Förbättrade sig 45 min i Birkebeinerrennet',
       },
       {
         quote: 'Kombinationen av digital uppföljning och fysiska läger är perfekt för oss som bor utspridda i landet. Gemenskapen är unik och motivationen har aldrig varit högre.',
-        name: 'Thomas H.',
-        details: 'Tromsø, 51 år',
-        achievement: 'Debuterade i Ski Classics 2026',
+        name: 'Hanna',
+        details: '41 år',
+        achievement: 'Debuterade i langløp 2026',
       },
     ],
   },
@@ -404,7 +404,7 @@ export const sv: Translation = {
           error: 'Välj ditt huvudmål',
           options: [
             { value: 'vasaloppet', label: 'Genomföra Vasaloppet 2027' },
-            { value: 'skiclassics', label: 'Delta i Ski Classics' },
+            { value: 'skiclassics', label: 'Delta i langløp' },
             { value: 'forbedre', label: 'Förbättra mig i längdskidåkning generellt' },
             { value: 'birken', label: 'Birkebeinerrennet eller liknande' },
             { value: 'mosjonere', label: 'Träna mer strukturerat / motionera' },
@@ -421,7 +421,7 @@ export const sv: Translation = {
     sub: 'Hittade du inte svar på det du undrar? Kontakta oss direkt så hjälper vi dig.',
     cta: 'Ställ en fråga',
     items: [
-      { question: 'Vem passar detta för?', answer: 'Konceptet passar alla som vill ha strukturerad träning mot längdskidåkning och Ski Classics – oavsett om du är en erfaren motionär eller relativt ny i sporten. Vi tar emot alla nivåer och anpassar upplägget efter dina mål och förutsättningar.' },
+      { question: 'Vem passar detta för?', answer: 'Konceptet passar alla som vill ha strukturerad träning mot längdskidåkning och langløp – oavsett om du är en erfaren motionär eller relativt ny i sporten. Vi tar emot alla nivåer och anpassar upplägget efter dina mål och förutsättningar.' },
       { question: 'Behöver jag vara en erfaren längdskidåkare?', answer: 'Nej. Vi tar emot både erfarna och mindre erfarna utövare. Det viktigaste är att du vill utvecklas och är beredd att träna strukturerat under året. Vi sätter upp individuella mål och anpassar träningsprogrammet.' },
       { question: 'Hur fungerar den digitala uppföljningen?', answer: 'Som medlem får du digital träningsvägledning hela året, tillgång till digitala träningspass varannan vecka och löpande uppföljning. Vi använder digitala plattformar för kommunikation, träningsloggning och videoanalys av teknik.' },
       { question: 'Vad ingår i träningsprogrammet?', answer: 'Medlemskapet inkluderar personligt träningsprogram, styrkeprogram, teknikanalys, digitala träningspass varannan vecka, uppföljning under säsongen och möjlighet att delta på fysiska läger till rabatterat pris. Dessutom ingår upplägg och stöd under Vasaloppet 2027.' },
@@ -433,7 +433,7 @@ export const sv: Translation = {
   },
 
   footer: {
-    brandDesc: 'Strukturerad skidträning för dig som vill förbättra dig inom längdskidåkning och Ski Classics – ledd av tidigare elitidrottare och tränare från Team Engcon.',
+    brandDesc: 'Strukturerad skidträning för dig som vill förbättra dig inom längdskidåkning och langløp – ledd av tidigare elitidrottare och tränare från Team Engcon.',
     navTitle: 'Navigation',
     coachesTitle: 'Tränare',
     contactTitle: 'Kontakt',

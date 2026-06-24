@@ -3,7 +3,7 @@ import type { FaqItem } from '../types';
 export const faqItems: FaqItem[] = [
   {
     question: 'Hvem passer dette for?',
-    answer: 'Konseptet passer for alle som ønsker strukturert trening mot langrenn og Ski Classics – enten du er erfaren mosjonist eller relativt ny i sporten. Vi tar deg imot uansett nivå og tilpasser opplegget etter dine mål og forutsetninger.',
+    answer: 'Konseptet passer for alle som ønsker strukturert trening mot langrenn og langløp – enten du er erfaren mosjonist eller relativt ny i sporten. Vi tar deg imot uansett nivå og tilpasser opplegget etter dine mål og forutsetninger.',
   },
   {
     question: 'Må jeg være erfaren skiløper for å delta?',

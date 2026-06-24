@@ -19,7 +19,7 @@ export const testimonials: Testimonial[] = [
     quote: 'Kombinasjonen av digital oppfølging og fysiske samlinger er perfekt for oss som bor spredt rundt i landet. Fellesskapet er unikt og motivasjonen har aldri vært høyere.',
     name: 'Thomas H.',
     details: 'Tromsø, 51 år',
-    achievement: 'Debuterte i Ski Classics 2026',
+    achievement: 'Debuterte i langløp 2026',
   },
 ];
 

@@ -10,7 +10,7 @@ Deploy to Vercel: [![Deploy with Vercel](https://vercel.com/button)](https://ver
 
 ## 🏔️ Om prosjektet
 
-XC Performance er et digitalt treningskonsept for langrenn og Ski Classics. Nettsiden presenterer konseptet, trenerne, treningsinnholdet og samler inn interessemeldinger fra potensielle deltakere.
+XC Performance er et digitalt treningskonsept for langrenn og langløp. Nettsiden presenterer konseptet, trenerne, treningsinnholdet og samler inn interessemeldinger fra potensielle deltakere.
 
 ---
 
