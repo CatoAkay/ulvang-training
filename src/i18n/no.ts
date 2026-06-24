@@ -18,10 +18,10 @@ export const no: Translation = {
     badge: 'Langrenn & Ski Classics',
     headlineLine1: 'Tren som',
     headlineAccent: 'en eliteutøver',
-    sub: 'Strukturert skitrening med\ntidligere proffere',
+    sub: 'Strukturert skitrening',
     description:
       'Ta treningen til neste nivå med strukturert oppfølging fra tidligere eliteutøvere.\n' +
-      'Gjennom digitale treningsplaner, ukentlige gruppeøkter og inspirerende samlinger får du tilgang til kunnskap og erfaring fra Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang.\n' +
+      'Gjennom digitale treningsplaner, digitale økter og inspirerende samlinger får du tilgang til kunnskap og erfaring fra Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang.\n' +
       'For deg som ønsker å utvikle deg som langrennsløper, gjennomføre Ski Classics eller nå nye mål i skisporet.',
     ctaPrimary: 'Meld interesse',
     ctaSecondary: 'Les mer',

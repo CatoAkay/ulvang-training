@@ -18,10 +18,10 @@ export const en: Translation = {
     badge: 'Cross-Country Skiing & Ski Classics',
     headlineLine1: 'Train like',
     headlineAccent: 'an elite athlete',
-    sub: 'Structured ski training with\nformer professionals',
+    sub: 'Structured ski training',
     description:
       'Take your training to the next level with structured coaching from former elite athletes.\n' +
-      'Through digital training plans, weekly group sessions and inspiring camps, you gain access to the knowledge and experience of Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang and Ane Appelkvist Ulvang.\n' +
+      'Through digital training plans, online group sessions and inspiring camps, you gain access to the knowledge and experience of Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang and Ane Appelkvist Ulvang.\n' +
       'For those who want to develop as a cross-country skier, complete Ski Classics events or achieve new goals on the trails.',
     ctaPrimary: 'Register interest',
     ctaSecondary: 'Learn more',

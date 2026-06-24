@@ -18,10 +18,10 @@ export const sv: Translation = {
     badge: 'Längdskidåkning & Ski Classics',
     headlineLine1: 'Träna som',
     headlineAccent: 'en elitidrottare',
-    sub: 'Strukturerad skidträning med\ntidigare proffs',
+    sub: 'Strukturerad skidträning',
     description:
       'Ta din träning till nästa nivå med strukturerad uppföljning från tidigare elitåkare.\n' +
-      'Genom digitala träningsplaner, veckovisa grupppass och inspirerande läger får du tillgång till kunskap och erfarenhet från Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang och Ane Appelkvist Ulvang.\n' +
+      'Genom digitala träningsplaner, onlineträning och inspirerande läger får du tillgång till kunskap och erfarenhet från Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang och Ane Appelkvist Ulvang.\n' +
       'För dig som vill utvecklas som längdskidåkare, genomföra Ski Classics eller nå nya mål i skidspåret.',
     ctaPrimary: 'Anmäl intresse',
     ctaSecondary: 'Läs mer',
