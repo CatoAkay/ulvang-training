@@ -27,7 +27,8 @@ Nettsiden er fullbygget og klar for produksjon.
 | **Konseptet** | Tokolonne-layout med sesongkronikk-kort |
 | **Hva du får** | 7 animerte feature-kort (treningsprogram, styrke, teknikk, digitale økter, samlinger, oppfølging, fellesskap) |
 | **Trenere** | 4-kolonne grid med coachkort – klikk åpner animert modal med fullbiografi |
-| **Samlinger** | Samlingsoversikt med feature-liste |
+| **Samlinger** | Samlingsoversikt med Mora camp-kort og påmeldingsmodal |
+| **Priser** | Tydelige priskort (årsmedlemskap + samlingspriser) |
 | **Hvorfor oss** | Tillitstbygging med statistikk og Team Engcon-kort |
 | **Deltakere** | Testimonials (placeholder, klar til å erstattes) |
 | **Meld interesse** | React Hook Form med validering, simulert innsending, suksess-tilstand |
@@ -138,7 +139,23 @@ Prosjektet er konfigurert for Vercel via `vercel.json`:
 
 ---
 
-## 📋 Gjenstående før lansering
+## 🌐 TODO: Norsk / Svensk språkveksling
+
+<!-- TODO: Language toggle (Norwegian ↔ Swedish)
+  - Client request: it would be nice to switch between Norwegian and Swedish
+  - Camp data and copy in `src/sections/TrainingCamps/TrainingCamps.tsx` and
+    `src/components/CampRegistrationModal/CampRegistrationModal.tsx` is structured
+    for easy future extraction to a i18n/translation layer.
+  - Recommended approach when implementing:
+    1. Use `react-i18next` or a lightweight context-based solution
+    2. Extract all user-visible strings into `src/i18n/no.ts` and `src/i18n/sv.ts`
+    3. Add a language toggle button in Navigation
+  - Priority: Low – implement once content is finalised
+-->
+
+---
+
+
 
 - [ ] Erstatt placeholder-testimonials med ekte tilbakemeldinger fra deltakere
 - [ ] Koble kontaktskjema til backend/e-posttjeneste (se `src/sections/Contact/Contact.tsx`)

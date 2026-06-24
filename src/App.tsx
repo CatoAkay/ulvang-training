@@ -3,6 +3,7 @@ import Hero from './sections/Hero/Hero';
 import About from './sections/About/About';
 import Features from './sections/Features/Features';
 import Coaches from './sections/Coaches/Coaches';
+import Pricing from './sections/Pricing/Pricing';
 import TrainingCamps from './sections/TrainingCamps/TrainingCamps';
 import WhyUs from './sections/WhyUs/WhyUs';
 import Testimonials from './sections/Testimonials/Testimonials';
@@ -19,6 +20,7 @@ function App() {
         <About />
         <Features />
         <Coaches />
+        <Pricing />
         <TrainingCamps />
         <WhyUs />
         <Testimonials />

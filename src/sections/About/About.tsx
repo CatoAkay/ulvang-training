@@ -12,8 +12,8 @@ const pillars = [
   },
   {
     icon: <Users size={22} />,
-    title: 'Ukentlige treningsøkter',
-    desc: 'Én digital gruppetrening per uke, ledet av erfarne trenere med toppidrettsbakgrunn.',
+    title: 'Digitale treningsøkter',
+    desc: 'Digitale gruppeøkter annenhver uke, ledet av erfarne trenere med toppidrettsbakgrunn.',
   },
   {
     icon: <MapPin size={22} />,
@@ -33,12 +33,12 @@ const timelineItems = [
     desc: 'Treningsprogram settes opp. Styrke og teknikkarbeid, fysiske samlinger.',
   },
   {
-    title: 'Vinter – Ski & Spesifikk trening',
-    desc: 'Skitrening starter. Teknikkanalyse og digitale sesjonspresentasjoner.',
+    title: 'Vinter – Ski & Vasaloppet',
+    desc: 'Skitrening starter. Teknikkanalyse, digitale økt-presentasjoner og forberedelse mot Vasaloppet.',
   },
   {
-    title: 'Vår – Toppform',
-    desc: 'Vasaloppet 2027. Evalurering og planlegging videre.',
+    title: 'Vår – Avkoblingsperiode',
+    desc: 'Avkoblingsperiode etter sesongens høydepunkter. Evaluering og planlegging videre.',
   },
   {
     title: 'Sommer – Grunnlag',
@@ -81,13 +81,12 @@ export default function About() {
               </h2>
               <p className={styles.body}>
                 Vi er fire tidligere langrennsprofiler som har slått seg sammen for å gi deg
-                tilgang til eliteoppfølging – uansett nivå. Konseptet kombinerer det beste
-                fra digital coaching med verdien av fysisk fellesskap.
+                tilgang til eliteoppfølging – uansett nivå. Konseptet kombinerer strukturert
+                digital coaching med verdien av inspirerende fysiske samlinger.
               </p>
               <p className={styles.body}>
                 Som deltaker får du et helhetlig opplegg rettet mot dine mål –
-                enten du sikter mot ditt første Vasaloppet eller vil forbedre plasseringen
-                i Ski Classics.
+                enten du sikter mot Vasaloppet, Ski Classics eller helt nye skimål.
               </p>
             </motion.div>
 

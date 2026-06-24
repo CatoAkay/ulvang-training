@@ -6,8 +6,8 @@ import { Send, CheckCircle, Calendar, Laptop, Users, AlertTriangle } from 'lucid
 import type { ContactFormData } from '../../types';
 import styles from './Contact.module.css';
 
-const EMAILJS_SERVICE_ID  = 'service_2iorjdh';
-const EMAILJS_TEMPLATE_ID = 'template_39rs5hy';
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string || 'service_2iorjdh';
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID as string || 'template_39rs5hy';
 // Public key is safe to expose in client-side code (it is not a secret key).
 // Set VITE_EMAILJS_PUBLIC_KEY in your .env file (see .env.example).
 const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;

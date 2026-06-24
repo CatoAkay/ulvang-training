@@ -32,9 +32,9 @@ const features = [
   },
   {
     icon: <Monitor size={24} />,
-    tag: 'Ukentlig',
+    tag: 'Annenhver uke',
     title: 'Digitale treningsøkter',
-    desc: 'Én digital gruppetrening i uken ledet av trenerne. Gjennomgang, motivasjon og faglig påfyll.',
+    desc: 'Digital gruppetrening annenhver uke ledet av trenerne. Gjennomgang, motivasjon og faglig påfyll.',
   },
   {
     icon: <Users size={24} />,

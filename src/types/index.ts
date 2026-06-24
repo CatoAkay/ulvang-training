@@ -37,3 +37,16 @@ export interface ContactFormData {
   melding?: string;
 }
 
+export interface CampRegistrationFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
+  arrivalDay: string;
+  accommodation: string;
+  roommate?: string;
+  allergies?: string;
+  message?: string;
+  consent: boolean;
+}

@@ -1,11 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Calendar, MapPin, Users, CheckCircle, Mountain, ChevronRight, AlertCircle } from 'lucide-react';
+import CampRegistrationModal from '../../components/CampRegistrationModal/CampRegistrationModal';
 import styles from './TrainingCamps.module.css';
 
-function scrollToSection(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-}
 
 const camps = [
   {
@@ -55,6 +53,7 @@ const stagger = {
 export default function TrainingCamps() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section id="samlinger" className={styles.section} aria-labelledby="camps-heading">
@@ -131,7 +130,7 @@ export default function TrainingCamps() {
             </div>
             <button
               className={styles.nextCampCta}
-              onClick={() => scrollToSection('kontakt')}
+              onClick={() => setModalOpen(true)}
               aria-label="Sikre din plass på samlingen i Mora"
             >
               Sikre din plass
@@ -198,6 +197,12 @@ export default function TrainingCamps() {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Camp registration modal */}
+        <CampRegistrationModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
       </div>
     </section>
   );

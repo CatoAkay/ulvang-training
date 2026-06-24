@@ -68,9 +68,9 @@ export default function Hero() {
             </motion.p>
 
             <motion.p variants={item} className={styles.description}>
-              Digital treningsveiledning, ukentlige treningsøkter og fysiske samlinger –
+              Digital treningsveiledning, digitale treningsøkter annenhver uke og inspirerende fysiske samlinger –
               ledet av Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang.
-              For deg som vil gjennomføre eller forbedre deg i langrenn og Ski Classics.
+              For deg som sikter mot Vasaloppet, Ski Classics eller nye skimål.
             </motion.p>
 
             <motion.div variants={item} className={styles.ctas}>
