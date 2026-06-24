@@ -46,9 +46,11 @@ export default function Hero() {
               ))}
             </motion.p>
 
-            <motion.p variants={item} className={styles.description}>
-              {t.hero.description}
-            </motion.p>
+            <motion.div variants={item} className={styles.description}>
+              {t.hero.description.split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </motion.div>
 
             <motion.div variants={item} className={styles.ctas}>
               <button className={styles.ctaPrimary} onClick={() => scrollToSection('kontakt')} aria-label={t.hero.ctaPrimary}>

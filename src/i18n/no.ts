@@ -20,9 +20,9 @@ export const no: Translation = {
     headlineAccent: 'en eliteutøver',
     sub: 'Strukturert skitrening med\ntidligere proffere',
     description:
-      'Digital treningsveiledning, digitale treningsøkter annenhver uke og inspirerende fysiske samlinger – ' +
-      'ledet av Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang. ' +
-      'For deg som sikter mot Vasaloppet, Ski Classics eller nye skimål.',
+      'Ta treningen til neste nivå med strukturert oppfølging fra tidligere eliteutøvere.\n' +
+      'Gjennom digitale treningsplaner, ukentlige gruppeøkter og inspirerende samlinger får du tilgang til kunnskap og erfaring fra Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang.\n' +
+      'For deg som ønsker å utvikle deg som langrennsløper, gjennomføre Ski Classics eller nå nye mål i skisporet.',
     ctaPrimary: 'Meld interesse',
     ctaSecondary: 'Les mer',
     scrollText: 'Scroll',

@@ -20,9 +20,9 @@ export const en: Translation = {
     headlineAccent: 'an elite athlete',
     sub: 'Structured ski training with\nformer professionals',
     description:
-      'Digital training guidance, digital sessions every other week and inspiring physical camps – ' +
-      'led by Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang and Ane Appelkvist Ulvang. ' +
-      'For those aiming for Vasaloppet, Ski Classics or new skiing goals.',
+      'Take your training to the next level with structured coaching from former elite athletes.\n' +
+      'Through digital training plans, weekly group sessions and inspiring camps, you gain access to the knowledge and experience of Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang and Ane Appelkvist Ulvang.\n' +
+      'For those who want to develop as a cross-country skier, complete Ski Classics events or achieve new goals on the trails.',
     ctaPrimary: 'Register interest',
     ctaSecondary: 'Learn more',
     scrollText: 'Scroll',

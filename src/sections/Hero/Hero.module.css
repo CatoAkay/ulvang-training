@@ -96,8 +96,16 @@
   font-size: clamp(15px, 1.8vw, 18px);
   line-height: 1.7;
   color: var(--color-text-2);
-  max-width: 520px;
+  max-width: 560px;
   margin-bottom: 44px;
+}
+
+.description p {
+  margin: 0;
+}
+
+.description p + p {
+  margin-top: 10px;
 }
 
 .ctas {

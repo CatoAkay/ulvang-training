@@ -20,9 +20,9 @@ export const sv: Translation = {
     headlineAccent: 'en elitidrottare',
     sub: 'Strukturerad skidträning med\ntidigare proffs',
     description:
-      'Digital träningsvägledning, digitala pass varannan vecka och inspirerande fysiska läger – ' +
-      'lett av Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang och Ane Appelkvist Ulvang. ' +
-      'För dig som siktar mot Vasaloppet, Ski Classics eller nya skidmål.',
+      'Ta din träning till nästa nivå med strukturerad uppföljning från tidigare elitåkare.\n' +
+      'Genom digitala träningsplaner, veckovisa grupppass och inspirerande läger får du tillgång till kunskap och erfarenhet från Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang och Ane Appelkvist Ulvang.\n' +
+      'För dig som vill utvecklas som längdskidåkare, genomföra Ski Classics eller nå nya mål i skidspåret.',
     ctaPrimary: 'Anmäl intresse',
     ctaSecondary: 'Läs mer',
     scrollText: 'Scrolla',
