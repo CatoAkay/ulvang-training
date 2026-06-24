@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
-import { faqItems } from '../../data/faq';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './FAQ.module.css';
 
 function scrollToSection(id: string) {
@@ -12,6 +12,7 @@ function scrollToSection(id: string) {
 export default function FAQ() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   return (
     <section id="faq" className={styles.section} aria-labelledby="faq-heading">
@@ -24,26 +25,25 @@ export default function FAQ() {
           transition={{ duration: 0.7 }}
         >
           <div className={styles.left}>
-            <span className={styles.label}>FAQ</span>
+            <span className={styles.label}>{t.faq.label}</span>
             <h2 id="faq-heading" className={styles.heading}>
-              Spørsmål<br />& svar
+              {t.faq.heading.split('\n').map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 ? <br /> : null}</span>
+              ))}
             </h2>
-            <p className={styles.sub}>
-              Ikke funnet svar på det du lurer på?
-              Ta kontakt direkte, så hjelper vi deg.
-            </p>
+            <p className={styles.sub}>{t.faq.sub}</p>
             <button
               className={styles.ctaLink}
               onClick={() => scrollToSection('kontakt')}
-              aria-label="Gå til kontaktskjema"
+              aria-label={t.faq.cta}
             >
               <MessageCircle size={16} />
-              Still et spørsmål
+              {t.faq.cta}
             </button>
           </div>
 
           <div className={styles.right}>
-            <FaqAccordion items={faqItems} />
+            <FaqAccordion items={t.faq.items} />
           </div>
         </motion.div>
       </div>

@@ -4,12 +4,11 @@ import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { Send, CheckCircle, Calendar, Laptop, Users, AlertTriangle } from 'lucide-react';
 import type { ContactFormData } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Contact.module.css';
 
 const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string || 'service_2iorjdh';
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID as string || 'template_39rs5hy';
-// Public key is safe to expose in client-side code (it is not a secret key).
-// Set VITE_EMAILJS_PUBLIC_KEY in your .env file (see .env.example).
 const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
 async function submitForm(data: ContactFormData): Promise<void> {
@@ -31,30 +30,10 @@ async function submitForm(data: ContactFormData): Promise<void> {
   );
 }
 
-const infoItems = [
-  {
-    icon: <Calendar size={20} />,
-    title: 'Oppstart høst 2026',
-    desc: 'Vi planlegger oppstart av treningsgruppen til høst 2026.',
-  },
-  {
-    icon: <Laptop size={20} />,
-    title: 'Digitalt første',
-    desc: 'Konseptet kjøres primært digitalt – perfekt uansett hvor du bor.',
-  },
-  {
-    icon: <Users size={20} />,
-    title: 'Begrenset plasser',
-    desc: 'For å sikre god oppfølging tar vi inn et begrenset antall deltakere.',
-  },
-];
+const INFO_ICONS = [<Calendar size={20} />, <Laptop size={20} />, <Users size={20} />];
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
-};
+const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } } };
 
 export default function Contact() {
   const ref = useRef(null);
@@ -62,12 +41,10 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
+  const { t, lang } = useLanguage();
+  const f = t.contact.form;
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactFormData>();
+  const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>();
 
   const onSubmit = async (data: ContactFormData) => {
     setIsLoading(true);
@@ -77,10 +54,7 @@ export default function Contact() {
       setSubmitted(true);
     } catch (err) {
       console.error('EmailJS error:', err);
-      setSendError(
-        'Noe gikk galt ved sending. Sjekk internettforbindelsen og prøv igjen, ' +
-        'eller kontakt oss direkte på kontakt@xcperformance.no',
-      );
+      setSendError(f.sendError);
     } finally {
       setIsLoading(false);
     }
@@ -100,20 +74,19 @@ export default function Contact() {
           {/* Left */}
           <div className={styles.left}>
             <motion.div variants={fadeUp}>
-              <span className={styles.label}>Kom i gang</span>
+              <span className={styles.label}>{t.contact.label}</span>
               <h2 id="contact-heading" className={styles.heading}>
-                Meld din<br />interesse
+                {t.contact.heading.split('\n').map((line, i, arr) => (
+                  <span key={i}>{line}{i < arr.length - 1 ? <br /> : null}</span>
+                ))}
               </h2>
-              <p className={styles.bodyText}>
-                Fyll ut skjemaet, så tar vi kontakt med mer informasjon om konseptet,
-                priser og oppstart. Det er uforpliktende.
-              </p>
+              <p className={styles.bodyText}>{t.contact.bodyText}</p>
             </motion.div>
 
             <motion.ul variants={fadeUp} className={styles.infoList} aria-label="Praktisk informasjon">
-              {infoItems.map((item, i) => (
+              {t.contact.infoItems.map((item, i) => (
                 <li key={i} className={styles.infoItem}>
-                  <div className={styles.infoIcon}>{item.icon}</div>
+                  <div className={styles.infoIcon}>{INFO_ICONS[i]}</div>
                   <div>
                     <div className={styles.infoTitle}>{item.title}</div>
                     <div className={styles.infoDesc}>{item.desc}</div>
@@ -127,69 +100,58 @@ export default function Contact() {
           <motion.div variants={fadeUp} className={styles.formCard}>
             <AnimatePresence mode="wait">
               {!submitted ? (
-                <motion.div
-                  key="form"
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <div className={styles.formTitle}>Meld interesse</div>
+                <motion.div key={`form-${lang}`} initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                  <div className={styles.formTitle}>{f.title}</div>
                   <div className={styles.formSub}>
-                    Alle felter merket <span aria-hidden="true">*</span> er påkrevd
+                    {f.sub.replace('*', '')} <span aria-hidden="true">*</span>
                   </div>
 
                   <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <div className={styles.row}>
                       <div className={styles.field}>
                         <label htmlFor="navn" className={styles.label2}>
-                          Navn <span className={styles.required} aria-hidden="true">*</span>
+                          {f.fields.navn.label} <span className={styles.required} aria-hidden="true">*</span>
                         </label>
                         <input
                           id="navn"
                           type="text"
-                          placeholder="Ola Nordmann"
+                          placeholder={f.fields.navn.placeholder}
                           autoComplete="name"
                           className={`${styles.input} ${errors.navn ? styles.error : ''}`}
                           aria-required="true"
                           aria-invalid={!!errors.navn}
-                          {...register('navn', { required: 'Navn er påkrevd' })}
+                          {...register('navn', { required: f.fields.navn.error })}
                         />
-                        {errors.navn && (
-                          <span className={styles.errorMsg} role="alert">{errors.navn.message}</span>
-                        )}
+                        {errors.navn && <span className={styles.errorMsg} role="alert">{errors.navn.message}</span>}
                       </div>
 
                       <div className={styles.field}>
                         <label htmlFor="epost" className={styles.label2}>
-                          E-post <span className={styles.required} aria-hidden="true">*</span>
+                          {f.fields.epost.label} <span className={styles.required} aria-hidden="true">*</span>
                         </label>
                         <input
                           id="epost"
                           type="email"
-                          placeholder="ola@eksempel.no"
+                          placeholder={f.fields.epost.placeholder}
                           autoComplete="email"
                           className={`${styles.input} ${errors.epost ? styles.error : ''}`}
                           aria-required="true"
                           aria-invalid={!!errors.epost}
                           {...register('epost', {
-                            required: 'E-post er påkrevd',
-                            pattern: {
-                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                              message: 'Ugyldig e-postadresse',
-                            },
+                            required: f.fields.epost.error,
+                            pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: f.fields.epost.patternError },
                           })}
                         />
-                        {errors.epost && (
-                          <span className={styles.errorMsg} role="alert">{errors.epost.message}</span>
-                        )}
+                        {errors.epost && <span className={styles.errorMsg} role="alert">{errors.epost.message}</span>}
                       </div>
                     </div>
 
                     <div className={styles.field}>
-                      <label htmlFor="telefon" className={styles.label2}>Telefon</label>
+                      <label htmlFor="telefon" className={styles.label2}>{f.fields.telefon.label}</label>
                       <input
                         id="telefon"
                         type="tel"
-                        placeholder="+47 000 00 000"
+                        placeholder={f.fields.telefon.placeholder}
                         autoComplete="tel"
                         className={styles.input}
                         {...register('telefon')}
@@ -198,7 +160,7 @@ export default function Contact() {
 
                     <div className={styles.field}>
                       <label htmlFor="erfaring" className={styles.label2}>
-                        Erfaring <span className={styles.required} aria-hidden="true">*</span>
+                        {f.fields.erfaring.label} <span className={styles.required} aria-hidden="true">*</span>
                       </label>
                       <select
                         id="erfaring"
@@ -206,23 +168,19 @@ export default function Contact() {
                         aria-required="true"
                         aria-invalid={!!errors.erfaring}
                         defaultValue=""
-                        {...register('erfaring', { required: 'Velg din erfaringsbakgrunn' })}
+                        {...register('erfaring', { required: f.fields.erfaring.error })}
                       >
-                        <option value="" disabled>Velg din erfaringsbakgrunn</option>
-                        <option value="nybegynner">Nybegynner – har ikke gått langrenn</option>
-                        <option value="mosjonist">Mosjonist – går noen ganger i året</option>
-                        <option value="aktiv">Aktiv – trener regelmessig</option>
-                        <option value="konkurranseutover">Konkurranseutøver – deltar i løp</option>
-                        <option value="elite">Eliteutøver / har vært det</option>
+                        <option value="" disabled>{f.fields.erfaring.placeholder}</option>
+                        {f.fields.erfaring.options.map((o) => (
+                          <option key={o.value} value={o.value}>{o.label}</option>
+                        ))}
                       </select>
-                      {errors.erfaring && (
-                        <span className={styles.errorMsg} role="alert">{errors.erfaring.message}</span>
-                      )}
+                      {errors.erfaring && <span className={styles.errorMsg} role="alert">{errors.erfaring.message}</span>}
                     </div>
 
                     <div className={styles.field}>
                       <label htmlFor="maal" className={styles.label2}>
-                        Hovedmål <span className={styles.required} aria-hidden="true">*</span>
+                        {f.fields.maal.label} <span className={styles.required} aria-hidden="true">*</span>
                       </label>
                       <select
                         id="maal"
@@ -230,26 +188,22 @@ export default function Contact() {
                         aria-required="true"
                         aria-invalid={!!errors.maal}
                         defaultValue=""
-                        {...register('maal', { required: 'Velg ditt hovedmål' })}
+                        {...register('maal', { required: f.fields.maal.error })}
                       >
-                        <option value="" disabled>Velg ditt primære mål</option>
-                        <option value="vasaloppet">Gjennomføre Vasaloppet 2027</option>
-                        <option value="skiclassics">Delta i Ski Classics</option>
-                        <option value="forbedre">Forbedre meg i langrenn generelt</option>
-                        <option value="birken">Birkebeinerrennet eller lignende</option>
-                        <option value="mosjonere">Trene mer strukturert / mosjonere</option>
+                        <option value="" disabled>{f.fields.maal.placeholder}</option>
+                        {f.fields.maal.options.map((o) => (
+                          <option key={o.value} value={o.value}>{o.label}</option>
+                        ))}
                       </select>
-                      {errors.maal && (
-                        <span className={styles.errorMsg} role="alert">{errors.maal.message}</span>
-                      )}
+                      {errors.maal && <span className={styles.errorMsg} role="alert">{errors.maal.message}</span>}
                     </div>
 
                     <div className={styles.field}>
-                      <label htmlFor="melding" className={styles.label2}>Melding</label>
+                      <label htmlFor="melding" className={styles.label2}>{f.fields.melding.label}</label>
                       <textarea
                         id="melding"
                         rows={4}
-                        placeholder="Fortell oss litt om deg selv og hva du ønsker å oppnå..."
+                        placeholder={f.fields.melding.placeholder}
                         className={styles.textarea}
                         {...register('melding')}
                       />
@@ -262,39 +216,16 @@ export default function Contact() {
                       </div>
                     )}
 
-                    <button
-                      type="submit"
-                      className={styles.submitBtn}
-                      disabled={isLoading}
-                      aria-label="Send interessemelding"
-                    >
-                      {isLoading ? (
-                        'Sender...'
-                      ) : (
-                        <>
-                          Send melding
-                          <Send size={17} />
-                        </>
-                      )}
+                    <button type="submit" className={styles.submitBtn} disabled={isLoading} aria-label={f.submit}>
+                      {isLoading ? f.submitting : (<>{f.submit}<Send size={17} /></>)}
                     </button>
                   </form>
                 </motion.div>
               ) : (
-                <motion.div
-                  key="success"
-                  className={styles.successCard}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <div className={styles.successIcon}>
-                    <CheckCircle size={32} />
-                  </div>
-                  <div className={styles.successTitle}>Takk for din interesse!</div>
-                  <p className={styles.successSub}>
-                    Vi har mottatt din melding og tar kontakt snart med mer
-                    informasjon om konseptet og oppstart.
-                  </p>
+                <motion.div key="success" className={styles.successCard} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}>
+                  <div className={styles.successIcon}><CheckCircle size={32} /></div>
+                  <div className={styles.successTitle}>{f.success.title}</div>
+                  <p className={styles.successSub}>{f.success.sub}</p>
                 </motion.div>
               )}
             </AnimatePresence>

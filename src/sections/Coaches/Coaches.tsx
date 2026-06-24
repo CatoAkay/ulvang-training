@@ -4,17 +4,13 @@ import { ChevronRight } from 'lucide-react';
 import { coaches } from '../../data/coaches';
 import type { Coach } from '../../types';
 import CoachModal from '../../components/CoachModal/CoachModal';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Coaches.module.css';
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: EASE, delay: i * 0.1 },
-  }),
+  show: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE, delay: i * 0.1 } }),
 };
 
 function getInitials(name: string) {
@@ -25,28 +21,28 @@ export default function Coaches() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [selectedCoach, setSelectedCoach] = useState<Coach | null>(null);
+  const { t } = useLanguage();
+
+  // Merge static coach data with translated fields
+  const translatedCoaches = coaches.map((c, i): Coach => ({
+    ...c,
+    role: t.coaches.items[i]?.role ?? c.role,
+    shortBio: t.coaches.items[i]?.shortBio ?? c.shortBio,
+    fullBio: t.coaches.items[i]?.fullBio ?? c.fullBio,
+    achievements: t.coaches.items[i]?.achievements ?? c.achievements,
+  }));
 
   return (
     <section id="trenere" className={styles.section} aria-labelledby="coaches-heading">
       <div className="container">
-        <motion.div
-          className={styles.header}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <span className={styles.label}>Trenerne</span>
-          <h2 id="coaches-heading" className={styles.heading}>
-            Lær av de beste
-          </h2>
-          <p className={styles.sub}>
-            Tidligere eliteutøvere og sertifiserte trenere – med hundrevis av
-            konkurransedager og år i verdenseliten.
-          </p>
+        <motion.div className={styles.header} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }}>
+          <span className={styles.label}>{t.coaches.label}</span>
+          <h2 id="coaches-heading" className={styles.heading}>{t.coaches.heading}</h2>
+          <p className={styles.sub}>{t.coaches.sub}</p>
         </motion.div>
 
         <div ref={ref} className={styles.grid}>
-          {coaches.map((coach, i) => (
+          {translatedCoaches.map((coach, i) => (
             <motion.article
               key={coach.id}
               className={styles.card}
@@ -57,7 +53,7 @@ export default function Coaches() {
               onClick={() => setSelectedCoach(coach)}
               role="button"
               tabIndex={0}
-              aria-label={`Les mer om ${coach.name}`}
+              aria-label={`${t.coaches.readMore} ${coach.name}`}
               onKeyDown={(e) => e.key === 'Enter' && setSelectedCoach(coach)}
             >
               <div className={styles.photo}>
@@ -78,13 +74,10 @@ export default function Coaches() {
                 <p className={styles.coachBio}>{coach.shortBio}</p>
                 <button
                   className={styles.readMore}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedCoach(coach);
-                  }}
-                  aria-label={`Les mer om ${coach.name}`}
+                  onClick={(e) => { e.stopPropagation(); setSelectedCoach(coach); }}
+                  aria-label={`${t.coaches.readMore} ${coach.name}`}
                 >
-                  Les mer <ChevronRight size={14} />
+                  {t.coaches.readMore} <ChevronRight size={14} />
                 </button>
               </div>
             </motion.article>
@@ -92,11 +85,7 @@ export default function Coaches() {
         </div>
       </div>
 
-      <CoachModal
-        coach={selectedCoach}
-        onClose={() => setSelectedCoach(null)}
-      />
+      <CoachModal coach={selectedCoach} onClose={() => setSelectedCoach(null)} />
     </section>
   );
 }
-

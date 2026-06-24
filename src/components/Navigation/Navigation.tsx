@@ -2,26 +2,18 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mountain } from 'lucide-react';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Navigation.module.css';
-
-const navItems = [
-  { label: 'Hjem', href: 'hero' },
-  { label: 'Konseptet', href: 'konseptet' },
-  { label: 'Tilbud', href: 'tilbud' },
-  { label: 'Trenere', href: 'trenere' },
-  { label: 'Samlinger', href: 'samlinger' },
-];
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' });
-  }
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
 export default function Navigation() {
   const { isScrolled } = useScrollPosition();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t, lang, setLang, langs, langLabels } = useLanguage();
 
   const handleNav = (href: string) => {
     scrollToSection(href);
@@ -57,7 +49,7 @@ export default function Navigation() {
           </div>
 
           <nav className={styles.desktopNav}>
-            {navItems.map((item) => (
+            {t.nav.links.map((item) => (
               <button
                 key={item.href}
                 className={styles.navLink}
@@ -66,11 +58,27 @@ export default function Navigation() {
                 {item.label}
               </button>
             ))}
+
+            {/* Language toggle – desktop */}
+            <div className={styles.langToggle} role="group" aria-label="Select language">
+              {langs.map((l) => (
+                <button
+                  key={l}
+                  className={`${styles.langBtn} ${lang === l ? styles.activeLang : ''}`}
+                  onClick={() => setLang(l)}
+                  aria-label={`Switch to ${langLabels[l]}`}
+                  aria-pressed={lang === l}
+                >
+                  {langLabels[l]}
+                </button>
+              ))}
+            </div>
+
             <button
               className={styles.navCta}
               onClick={() => scrollToSection('kontakt')}
             >
-              Meld interesse
+              {t.nav.cta}
             </button>
           </nav>
 
@@ -96,7 +104,7 @@ export default function Navigation() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
           >
-            {navItems.map((item, i) => (
+            {t.nav.links.map((item, i) => (
               <motion.button
                 key={item.href}
                 className={styles.mobileNavLink}
@@ -115,12 +123,33 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
             >
-              Meld interesse
+              {t.nav.cta}
             </motion.button>
+
+            {/* Language toggle – mobile */}
+            <motion.div
+              className={styles.mobileLangToggle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.42 }}
+              role="group"
+              aria-label="Select language"
+            >
+              {langs.map((l) => (
+                <button
+                  key={l}
+                  className={`${styles.mobileLangBtn} ${lang === l ? styles.activeLang : ''}`}
+                  onClick={() => setLang(l)}
+                  aria-label={`Switch to ${langLabels[l]}`}
+                  aria-pressed={lang === l}
+                >
+                  {langLabels[l]}
+                </button>
+              ))}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
   );
 }
-

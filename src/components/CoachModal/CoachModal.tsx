@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin } from 'lucide-react';
 import type { Coach } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './CoachModal.module.css';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 
 export default function CoachModal({ coach, onClose }: Props) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   // Close on Escape key
   useEffect(() => {
@@ -87,7 +89,7 @@ export default function CoachModal({ coach, onClose }: Props) {
 
             <div className={styles.body}>
               <div className={styles.bioSection}>
-                <h3>Biografi</h3>
+                <h3>{t.coaches.modal.bioSection}</h3>
                 {coach.fullBio.map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
@@ -96,7 +98,7 @@ export default function CoachModal({ coach, onClose }: Props) {
               <div className={styles.divider} />
 
               <div className={styles.achievementsSection}>
-                <h3>Meritter & Erfaring</h3>
+                <h3>{t.coaches.modal.achievementsSection}</h3>
                 <ul className={styles.achievementsList}>
                   {coach.achievements.map((item, i) => (
                     <li key={i} className={styles.achievement}>

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, ChevronRight } from 'lucide-react';
-// TODO: Replace with actual hero image from Lightroom gallery
-// https://lightroom.adobe.com/shares/c2ae63b881f148378c5b8947bade0033
 import heroImg from '../../assets/hero.jpg';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Hero.module.css';
 
 function scrollToSection(id: string) {
@@ -10,84 +9,54 @@ function scrollToSection(id: string) {
 }
 
 const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
-};
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } } };
+const item = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } } };
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="hero" className={styles.hero} aria-label="Forside">
-      {/* Background */}
       <div className={styles.bg}>
-        {/* TODO: Replace heroImg with actual image from Lightroom gallery */}
-        <img
-          src={heroImg}
-          alt="Skiløper i nordisk vinterlandskap"
-          className={styles.bgImg}
-          loading="eager"
-          fetchPriority="high"
-        />
+        <img src={heroImg} alt="Skiløper i nordisk vinterlandskap" className={styles.bgImg} loading="eager" fetchPriority="high" />
       </div>
       <div className={styles.overlay} aria-hidden="true" />
 
-      {/* Scroll indicator */}
       <div className={styles.scrollIndicator} aria-hidden="true">
-        <span className={styles.scrollText}>Scroll</span>
+        <span className={styles.scrollText}>{t.hero.scrollText}</span>
         <div className={styles.scrollLine} />
       </div>
 
-      {/* Content */}
       <div className={styles.content}>
         <div className="container">
-          <motion.div
-            className={styles.inner}
-            variants={container}
-            initial="hidden"
-            animate="show"
-          >
+          <motion.div className={styles.inner} variants={container} initial="hidden" animate="show">
             <motion.div variants={item} className={styles.badge}>
               <span className={styles.badgeDot} />
-              <span className={styles.badgeText}>Langrenn & Ski Classics</span>
+              <span className={styles.badgeText}>{t.hero.badge}</span>
             </motion.div>
 
             <motion.h1 variants={item} className={styles.headline}>
-              Tren som<br />
-              <span className={styles.headlineAccent}>en eliteutøver</span>
+              {t.hero.headlineLine1}<br />
+              <span className={styles.headlineAccent}>{t.hero.headlineAccent}</span>
             </motion.h1>
 
             <motion.p variants={item} className={styles.sub}>
-              Strukturert skitrening med<br />
-              tidligere proffere
+              {t.hero.sub.split('\n').map((line, i) => (
+                <span key={i}>{line}{i === 0 ? <br /> : null}</span>
+              ))}
             </motion.p>
 
             <motion.p variants={item} className={styles.description}>
-              Digital treningsveiledning, digitale treningsøkter annenhver uke og inspirerende fysiske samlinger –
-              ledet av Laila Kveli, Jerry Ahrlin, Jørgen Appelkvist Ulvang og Ane Appelkvist Ulvang.
-              For deg som sikter mot Vasaloppet, Ski Classics eller nye skimål.
+              {t.hero.description}
             </motion.p>
 
             <motion.div variants={item} className={styles.ctas}>
-              <button
-                className={styles.ctaPrimary}
-                onClick={() => scrollToSection('kontakt')}
-                aria-label="Meld interesse for treningskonseptet"
-              >
-                Meld interesse
+              <button className={styles.ctaPrimary} onClick={() => scrollToSection('kontakt')} aria-label={t.hero.ctaPrimary}>
+                {t.hero.ctaPrimary}
                 <ChevronRight size={18} />
               </button>
-              <button
-                className={styles.ctaSecondary}
-                onClick={() => scrollToSection('konseptet')}
-                aria-label="Les mer om konseptet"
-              >
-                Les mer
+              <button className={styles.ctaSecondary} onClick={() => scrollToSection('konseptet')} aria-label={t.hero.ctaSecondary}>
+                {t.hero.ctaSecondary}
                 <ArrowDown size={16} />
               </button>
             </motion.div>
@@ -95,36 +64,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <motion.div
-        className={styles.statsBar}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-      >
+      <motion.div className={styles.statsBar} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.6 }}>
         <div className={`container ${styles.statsInner}`}>
-          <div className={styles.stat}>
-            <div className={styles.statNumber}>2×</div>
-            <div className={styles.statLabel}>Vasaloppet-vinner</div>
-          </div>
-          <div className={styles.statDivider} aria-hidden="true" />
-          <div className={styles.stat}>
-            <div className={styles.statNumber}>4</div>
-            <div className={styles.statLabel}>Trenere</div>
-          </div>
-          <div className={styles.statDivider} aria-hidden="true" />
-          <div className={styles.stat}>
-            <div className={styles.statNumber}>Team<br />Engcon</div>
-            <div className={styles.statLabel}>Verdens beste lag</div>
-          </div>
-          <div className={styles.statDivider} aria-hidden="true" />
-          <div className={styles.stat}>
-            <div className={styles.statNumber}>365</div>
-            <div className={styles.statLabel}>Dager i året</div>
-          </div>
+          {t.hero.stats.map((stat, i) => (
+            <div key={i} className={styles.stat}>
+              <div className={styles.statNumber}>
+                {stat.number.split('\n').map((line, j) => (
+                  <span key={j}>{line}{j === 0 && stat.number.includes('\n') ? <br /> : null}</span>
+                ))}
+              </div>
+              <div className={styles.statLabel}>{stat.label}</div>
+              {i < t.hero.stats.length - 1 && <div className={styles.statDivider} aria-hidden="true" />}
+            </div>
+          ))}
         </div>
       </motion.div>
     </section>
   );
 }
-
