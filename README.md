@@ -207,8 +207,7 @@ Prosjektet er konfigurert for Vercel via `vercel.json`:
 - [ ] Erstatt placeholder-testimonials med ekte tilbakemeldinger fra deltakere
 - [ ] Legg til faktiske lenker til sosiale medier i Footer
 - [ ] Oppdater kontakt-e-post i Footer
-- [ ] Sett korrekt domene i `index.html` (Open Graph `og:url`)
-- [ ] Legg til `public/og-image.jpg` for sosiale delinger
+- [ ] Lag og legg til `public/og-image.jpg` (1200×630 px) for sosiale delinger – Open Graph og Twitter Card er satt opp og peker på `https://www.xcperformance.no/og-image.jpg`
 
 ---
 
