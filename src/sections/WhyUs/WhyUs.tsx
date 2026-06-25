@@ -17,7 +17,7 @@ export default function WhyUs() {
   const w = t.whyUs;
 
   return (
-    <section className={styles.section} aria-labelledby="whyus-heading">
+    <section id="om-oss" className={styles.section} aria-labelledby="whyus-heading">
       <div className="container">
         <motion.div ref={ref} className={styles.inner} variants={stagger} initial="hidden" animate={inView ? 'show' : 'hidden'}>
           {/* Left */}
