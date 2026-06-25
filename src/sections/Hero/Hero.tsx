@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, ChevronRight } from 'lucide-react';
-import heroImg from '../../assets/hero.jpg';
+import heroImg from '../../assets/fjell.jpg';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Hero.module.css';
 
