@@ -1,13 +1,12 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ClipboardList, Dumbbell, Video, Monitor, Users, HeartPulse, Mountain } from 'lucide-react';
+import { ClipboardList, Dumbbell, Monitor, Users, HeartPulse, Mountain } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Features.module.css';
 
 const ICONS = [
   <ClipboardList size={24} />,
   <Dumbbell size={24} />,
-  <Video size={24} />,
   <Monitor size={24} />,
   <Users size={24} />,
   <HeartPulse size={24} />,

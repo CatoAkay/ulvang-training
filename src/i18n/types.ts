@@ -19,6 +19,15 @@ export interface TestimonialTranslation {
   achievement?: string;
 }
 
+export interface PricingService {
+  title: string;
+  description: string;
+  includes: string[];
+  note?: string;
+  price: string;   // fully formatted, e.g. "SEK 1 490,-"
+  cta: string;
+}
+
 export interface Translation {
   lang: Lang;
 
@@ -83,6 +92,8 @@ export interface Translation {
       features: string[];
       cta: string;
     }>;
+    services: PricingService[];
+    servicesLabel: string;
     note: string;
   };
 

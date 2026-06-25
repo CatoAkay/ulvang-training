@@ -61,9 +61,8 @@ export const no: Translation = {
     heading: 'Alt du trenger\nfor å lykkes',
     sub: 'Et komplett treningskonsept utviklet av tidligere eliteutøvere – tilpasset din hverdag og dine mål.',
     items: [
-      { tag: 'Inkludert', title: 'Treningsprogram', desc: 'Individuelt tilpasset treningsprogram som tar deg gjennom hele sesongen med riktig belastning, periodisering og progresjon.' },
+      { tag: 'Inkludert', title: 'Treningsprogram', desc: 'Treningsprogram som tar deg gjennom sesongen og hjelper deg å nå dine mål.' },
       { tag: 'Inkludert', title: 'Styrkeprogram', desc: 'Spesifikt styrkeprogram for langrenn – fokus på kjernemuskulatur, overkropp og funksjonell styrke.' },
-      { tag: 'Inkludert', title: 'Teknikkanalyse', desc: 'Videoanalyse av teknikk på rulleski og ski – med konkret tilbakemelding fra erfarne trenere etter begge typer underlag.' },
       { tag: 'Annenhver uke', title: 'Digitale treningsøkter', desc: 'Digital gruppetrening annenhver uke ledet av trenerne. Gjennomgang, motivasjon og faglig påfyll.' },
       { tag: 'Fysisk', title: 'Samlinger', desc: '2–3 fysiske samlinger i løpet av høsten. Teknikk på rulleski og snø, fellesskap og motiverende rammer.' },
       { tag: 'Løpende', title: 'Oppfølging', desc: 'Tett individuell oppfølging gjennom sesongen. Trenerne er tilgjengelige og justerer opplegget underveis.' },
@@ -168,6 +167,7 @@ export const no: Translation = {
         'Tett oppfølging fra trenerne',
         'Teknikkanalyse (rulleski og snø)',
         'Rabattert pris på alle samlinger',
+        'Rabatterte priser på ski, staver, treningsbekledning og utstyr.',
         'Tilgang til treningsfellesskapet',
       ],
       cta: 'Meld interesse',
@@ -203,6 +203,39 @@ export const no: Translation = {
       },
     ],
     note: '* Enkeltdagsregistrering er tilgjengelig for samlinger: 1 900 SEK (medlem) / 2 400 SEK (ikke-medlem). Mat, hotell og reise faktureres separat.',
+    servicesLabel: 'Individuelle tjenester',
+    services: [
+      {
+        title: 'Individuelt styrkeprogram',
+        description: 'Individuelt tilpasset styrketreningsprogram til ditt nivå og dine mål.',
+        includes: [
+          '30 minutters samtale med en av våre trenere',
+          'Detaljert treningsprogram',
+          'Beskrivelse av gjennomføring og utførelse',
+        ],
+        price: 'SEK 1 490,-',
+        cta: 'Meld interesse',
+      },
+      {
+        title: 'Individuell teknikanalyse',
+        description: 'Individuell teknikanalyse med personlig gjennomgang.',
+        includes: [
+          '30 minutters samtale med en av våre trenere',
+          'Gjennomgang av personlige utviklingsmål',
+          'Arbeidsoppgaver og videre fokus',
+        ],
+        price: 'SEK 1 290,-',
+        cta: 'Meld interesse',
+      },
+      {
+        title: 'Individuell treningssamtale',
+        description: '45 minutters individuell treningssamtale med en av våre trenere.',
+        includes: [],
+        note: 'Du velger selv hvilken trener du ønsker å snakke med.',
+        price: 'SEK 1 490,-',
+        cta: 'Meld interesse',
+      },
+    ],
   },
 
   camps: {

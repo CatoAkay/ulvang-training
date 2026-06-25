@@ -61,9 +61,8 @@ export const en: Translation = {
     heading: 'Everything you need\nto succeed',
     sub: 'A complete training concept developed by former elite athletes – tailored to your daily life and goals.',
     items: [
-      { tag: 'Included', title: 'Training programme', desc: 'Individually tailored training programme taking you through the entire season with the right load, periodisation and progression.' },
+      { tag: 'Included', title: 'Training programme', desc: 'A training programme that carries you through the season and helps you reach your goals.' },
       { tag: 'Included', title: 'Strength programme', desc: 'Specific strength programme for cross-country skiing – focusing on core, upper body and functional strength.' },
-      { tag: 'Included', title: 'Technique analysis', desc: 'Video analysis of technique on roller skis and snow – with concrete feedback from experienced coaches on both surfaces.' },
       { tag: 'Every other week', title: 'Digital sessions', desc: 'Group digital session every other week led by the coaches. Review, motivation and expert insights.' },
       { tag: 'Physical', title: 'Camps', desc: '2–3 physical camps during the autumn. Technique on roller skis and snow, community and inspiring environment.' },
       { tag: 'Ongoing', title: 'Follow-up', desc: 'Close individual follow-up throughout the season. Coaches are available and adjust the programme along the way.' },
@@ -168,6 +167,7 @@ export const en: Translation = {
         'Close follow-up from the coaches',
         'Technique analysis (roller skis and snow)',
         'Discounted price on all camps',
+        'Discounted prices on skis, poles, training apparel and equipment.',
         'Access to the training community',
       ],
       cta: 'Register interest',
@@ -203,6 +203,39 @@ export const en: Translation = {
       },
     ],
     note: '* Single-day registration is available for camps: 1,900 SEK (member) / 2,400 SEK (non-member). Food, hotel and travel are invoiced separately.',
+    servicesLabel: 'Individual services',
+    services: [
+      {
+        title: 'Individual strength programme',
+        description: 'An individually tailored strength training programme for your level and goals.',
+        includes: [
+          '30-minute consultation with one of our coaches',
+          'Detailed training programme',
+          'Instructions on execution and proper form',
+        ],
+        price: 'SEK 1,490',
+        cta: 'Register interest',
+      },
+      {
+        title: 'Individual technique analysis',
+        description: 'Personal technique analysis with a detailed one-to-one review.',
+        includes: [
+          '30-minute consultation with one of our coaches',
+          'Review of personal development goals',
+          'Training tasks and continued focus areas',
+        ],
+        price: 'SEK 1,290',
+        cta: 'Register interest',
+      },
+      {
+        title: 'Individual training consultation',
+        description: 'A 45-minute one-to-one training consultation with one of our coaches.',
+        includes: [],
+        note: 'You choose which coach you want to speak with.',
+        price: 'SEK 1,490',
+        cta: 'Register interest',
+      },
+    ],
   },
 
   camps: {
