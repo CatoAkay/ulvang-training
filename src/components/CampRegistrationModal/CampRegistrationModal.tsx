@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { X, Send, CheckCircle, AlertTriangle, MapPin, Calendar, Users } from 'lucide-react';
 import type { CampRegistrationFormData } from '../../types';
+import type { CampEntry } from '../../data/camps';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './CampRegistrationModal.module.css';
 
@@ -12,23 +13,23 @@ const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string || 'servi
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CAMP_TEMPLATE_ID as string || 'template_491cugn';
 const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
 
-// Camp name stays language-neutral for EmailJS
-const CAMP_NAME = 'Mora 4.–6. september 2026';
-
-const needsRoommate = (acc: string) => acc.startsWith('Dobbeltrom') || acc.startsWith('Hytte') || acc.startsWith('Dub') || acc.startsWith('Stu');
+const needsRoommate = (acc: string) =>
+  acc.startsWith('Dobbeltrom') || acc.startsWith('Hytte') || acc.startsWith('Dub') || acc.startsWith('Stu');
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  camp: CampEntry;
 }
 
-export default function CampRegistrationModal({ isOpen, onClose }: Props) {
+export default function CampRegistrationModal({ isOpen, onClose, camp }: Props) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const { t, lang } = useLanguage();
   const m = t.campModal;
+  const cl = camp.locale[lang];
 
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<CampRegistrationFormData>({ mode: 'onBlur' });
   const selectedAccommodation = watch('accommodation', '');
@@ -62,7 +63,7 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          camp_name:     CAMP_NAME,
+          camp_name:     camp.emailCampName,
           first_name:    data.firstName,
           last_name:     data.lastName,
           email:         data.email,
@@ -100,7 +101,7 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
           transition={{ duration: 0.25 }}
           role="dialog"
           aria-modal="true"
-          aria-label={m.title}
+          aria-label={cl.title}
         >
           <motion.div
             className={styles.modal}
@@ -114,13 +115,13 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
               <div className={styles.headerContent}>
                 <div className={styles.eyebrow}>
                   <span className={styles.pulse} aria-hidden="true" />
-                  {m.eyebrow}
+                  {cl.eyebrow}
                 </div>
-                <h2 className={styles.title}>{m.title}</h2>
+                <h2 className={styles.title}>{cl.title}</h2>
                 <div className={styles.meta}>
-                  <span className={styles.metaItem}><Calendar size={13} aria-hidden="true" />{m.meta.date}</span>
-                  <span className={styles.metaItem}><MapPin size={13} aria-hidden="true" />{m.meta.location}</span>
-                  <span className={styles.metaItem}><Users size={13} aria-hidden="true" />{m.meta.participants}</span>
+                  <span className={styles.metaItem}><Calendar size={13} aria-hidden="true" />{cl.meta.date}</span>
+                  <span className={styles.metaItem}><MapPin size={13} aria-hidden="true" />{cl.meta.location}</span>
+                  <span className={styles.metaItem}><Users size={13} aria-hidden="true" />{cl.meta.participants}</span>
                 </div>
               </div>
               <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
@@ -131,15 +132,15 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
             {/* Deadline banner */}
             <div className={styles.deadlineBanner} role="note">
               <AlertTriangle size={14} aria-hidden="true" />
-              <span>{m.deadline.label} <strong>{m.deadline.date}</strong></span>
+              <span>{m.deadlineLabel} <strong>{cl.deadlineDate}</strong></span>
             </div>
 
             {/* Body */}
             <div className={styles.body}>
               <AnimatePresence mode="wait">
                 {!submitted ? (
-                  <motion.div key={`form-${lang}`} initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                    <p className={styles.formNote}>{m.formNote}</p>
+                  <motion.div key={`form-${lang}-${camp.id}`} initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <p className={styles.formNote}>{cl.formNote}</p>
 
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       {/* Name row */}
@@ -217,10 +218,10 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
                           aria-required="true" aria-invalid={!!errors.arrivalDay}
                           {...register('arrivalDay', { required: m.fields.arrivalDay.error })}>
                           <option value="" disabled>{m.fields.arrivalDay.placeholder}</option>
-                          {m.arrivalOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                          {cl.arrivalOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                         </select>
                         {errors.arrivalDay && <span className={styles.errorMsg} role="alert">{errors.arrivalDay.message}</span>}
-                        <span className={styles.fieldHint}>{m.fields.arrivalDay.hint}</span>
+                        <span className={styles.fieldHint}>{cl.arrivalHint}</span>
                       </div>
 
                       {/* Accommodation */}
@@ -233,10 +234,10 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
                           aria-required="true" aria-invalid={!!errors.accommodation}
                           {...register('accommodation', { required: m.fields.accommodation.error })}>
                           <option value="" disabled>{m.fields.accommodation.placeholder}</option>
-                          {m.accommodationOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                          {cl.accommodationOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                         </select>
                         {errors.accommodation && <span className={styles.errorMsg} role="alert">{errors.accommodation.message}</span>}
-                        <span className={styles.fieldHint}>{m.fields.accommodation.hint}</span>
+                        <span className={styles.fieldHint}>{cl.accommodationHint}</span>
                       </div>
 
                       {/* Roommate – conditional */}
@@ -286,7 +287,7 @@ export default function CampRegistrationModal({ isOpen, onClose }: Props) {
                   <motion.div key="success" className={styles.successState} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}>
                     <div className={styles.successIcon}><CheckCircle size={36} /></div>
                     <div className={styles.successTitle}>{m.success.title}</div>
-                    <p className={styles.successSub}>{m.success.sub}</p>
+                    <p className={styles.successSub}>{cl.successSub}</p>
                     <button className={styles.closeBtnSuccess} onClick={onClose}>{m.success.close}</button>
                   </motion.div>
                 )}

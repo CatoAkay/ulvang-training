@@ -27,7 +27,7 @@ const SERVICE_ICONS = [
 
 export default function Pricing() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
   const { t } = useLanguage();
 
   const membership = t.pricing.membership;

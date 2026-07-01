@@ -12,7 +12,7 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
 
 export default function WhyUs() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
   const { t } = useLanguage();
   const w = t.whyUs;
 

@@ -163,11 +163,10 @@ export const no: Translation = {
       label: 'Årsmedlemskap',
       period: 'per år',
       features: [
-        'Individuelt tilpasset treningsprogram',
+        'Treningsprogram',
         'Styrkeprogram for langrenn',
         'Digitale treningsøkter annenhver uke',
         'Tett oppfølging fra trenerne',
-        'Teknikkanalyse (rulleski og snø)',
         'Rabattert pris på alle samlinger',
         'Rabatterte priser på ski, staver, treningsbekledning og utstyr.',
         'Tilgang til treningsfellesskapet',
@@ -285,15 +284,7 @@ export const no: Translation = {
   },
 
   campModal: {
-    eyebrow: 'Påmelding',
-    title: 'Mora samling',
-    deadline: { label: 'Påmeldingsfrist:', date: '28. juli 2026' },
-    formNote: 'Alle felter merket * er påkrevd. Mat, hotell og reise faktureres separat direkte til hotellet/deg.',
-    meta: {
-      date: '4.–6. september 2026',
-      location: 'Mora Parken, Sverige',
-      participants: 'Maks 30 deltakere',
-    },
+    deadlineLabel: 'Påmeldingsfrist:',
     fields: {
       firstName: { label: 'Fornavn', placeholder: 'Ola', error: 'Fornavn er påkrevd' },
       lastName: { label: 'Etternavn', placeholder: 'Nordmann', error: 'Etternavn er påkrevd' },
@@ -304,13 +295,11 @@ export const no: Translation = {
         label: 'Ankomstdag',
         placeholder: 'Velg ankomstdag',
         error: 'Velg ankomstdag',
-        hint: 'Valgfri felles økt torsdag kveld kl. 19:00 (995 SEK, min. 5 deltakere).',
       },
       accommodation: {
         label: 'Overnatting',
         placeholder: 'Velg overnattingsalternativ',
         error: 'Velg overnattingsalternativ',
-        hint: 'Overnatting og mat betales direkte til hotellet. XC Performance fakturerer kun leirkostnader.',
       },
       roommate: { label: 'Ønsket romkamerat', placeholder: 'Fullt navn på ønsket romkamerat (valgfritt)' },
       allergies: { label: 'Allergier eller spesielle kostbehov', placeholder: 'F.eks. glutenintoleranse, nøttallergi... (valgfritt)' },
@@ -320,23 +309,11 @@ export const no: Translation = {
         error: 'Du må bekrefte at du har forstått betalingsbetingelsene',
       },
     },
-    arrivalOptions: [
-      { value: 'Torsdag 3/9', label: 'Torsdag 3. september' },
-      { value: 'Fredag 4/9', label: 'Fredag 4. september' },
-    ],
-    accommodationOptions: [
-      { value: 'Enkeltrom, 830 SEK/natt inkl. frokost', label: 'Enkeltrom – 830 SEK/natt inkl. frokost' },
-      { value: 'Dobbeltrom, 950 SEK/natt inkl. frokost', label: 'Dobbeltrom – 950 SEK/natt inkl. frokost' },
-      { value: 'Hytte 4-seng, 1030 SEK (frokost ikke inkludert)', label: 'Hytte 4-seng – 1 030 SEK (frokost ikke inkludert)' },
-      { value: 'Hytte 5-seng, 1490 SEK (frokost ikke inkludert)', label: 'Hytte 5-seng – 1 490 SEK (frokost ikke inkludert)' },
-      { value: 'Ordner overnatting selv', label: 'Jeg ordner overnatting selv' },
-    ],
     submit: 'Send påmelding',
     submitting: 'Sender...',
     sendError: 'Noe gikk galt ved innsending. Sjekk internettforbindelsen og prøv igjen, eller kontakt oss på kontakt@xcperformance.no',
     success: {
       title: 'Påmelding mottatt!',
-      sub: 'Takk for din påmelding til Mora samlingen 4.–6. september 2026. Vi tar kontakt med bekreftelse og praktisk informasjon.',
       close: 'Lukk',
     },
     consentYes: 'Ja',

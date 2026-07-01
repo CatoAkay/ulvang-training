@@ -134,6 +134,120 @@
   line-height: 1.6;
 }
 
+/* ── Camp cards grid (data-driven) ── */
+.campCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.campListCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-2);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+}
+
+.campListCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(91, 163, 201, 0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.campListCard:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45), var(--shadow-accent);
+}
+
+.campListCardSoon {
+  border-left-color: var(--color-text-muted);
+  opacity: 0.92;
+}
+
+/* Card image / header strip */
+.campListCardImg {
+  height: 160px;
+  background: linear-gradient(135deg, var(--color-surface-2), var(--color-surface-3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.campListCardImg svg {
+  color: var(--color-accent);
+  opacity: 0.18;
+}
+
+.campListCardImgLabel {
+  position: absolute;
+  bottom: 14px;
+  left: 20px;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.campSoonBadge {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Card body */
+.campListCardBody {
+  padding: 28px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.campListEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.campListDateBlock {
+  margin-bottom: 12px;
+}
+
+.campListDesc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-2);
+  margin-bottom: 20px;
+}
+
 /* ── Neste samling card ── */
 .nextCamp {
   display: grid;
@@ -352,6 +466,11 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+  .campCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .nextCamp {
     grid-template-columns: 1fr;
     border-left: 1px solid var(--color-border-2);

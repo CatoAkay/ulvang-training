@@ -121,30 +121,24 @@ export interface Translation {
   };
 
   campModal: {
-    eyebrow: string;
-    title: string;
-    deadline: { label: string; date: string };
-    formNote: string;
-    meta: { date: string; location: string; participants: string };
+    deadlineLabel: string;
     fields: {
       firstName: { label: string; placeholder: string; error: string };
       lastName: { label: string; placeholder: string; error: string };
       email: { label: string; placeholder: string; error: string; patternError: string };
       phone: { label: string; placeholder: string; error: string };
       address: { label: string; placeholder: string; error: string };
-      arrivalDay: { label: string; placeholder: string; error: string; hint: string };
-      accommodation: { label: string; placeholder: string; error: string; hint: string };
+      arrivalDay: { label: string; placeholder: string; error: string };
+      accommodation: { label: string; placeholder: string; error: string };
       roommate: { label: string; placeholder: string };
       allergies: { label: string; placeholder: string };
       message: { label: string; placeholder: string };
       consent: { text: string; error: string };
     };
-    arrivalOptions: Array<{ value: string; label: string }>;
-    accommodationOptions: Array<{ value: string; label: string }>;
     submit: string;
     submitting: string;
     sendError: string;
-    success: { title: string; sub: string; close: string };
+    success: { title: string; close: string };
     consentYes: string;
     consentNo: string;
   };
