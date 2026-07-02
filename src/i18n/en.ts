@@ -162,11 +162,11 @@ export const en: Translation = {
     membership: {
       label: 'Annual membership',
       period: 'per year',
+      membershipPeriod: '1 August 2026 – 31 July 2027',
       features: [
         'Training programme',
         'Strength programme for cross-country skiing',
         'Digital sessions every other week',
-        'Close follow-up from the coaches',
         'Discounted price on all camps',
         'Discounted prices on skis, poles, training apparel and equipment.',
         'Access to the training community',

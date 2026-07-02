@@ -62,6 +62,7 @@ export default function Pricing() {
                   <span className={styles.priceAmount}>{MEMBERSHIP_PRICE}</span>
                   <span className={styles.pricePeriod}>/{membership.period}</span>
                 </div>
+                <div className={styles.membershipPeriod}>{membership.membershipPeriod}</div>
               </div>
               <div className={styles.divider} aria-hidden="true" />
               <ul className={styles.featureList} aria-label={membership.label}>

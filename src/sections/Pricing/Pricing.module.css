@@ -141,6 +141,15 @@
   margin-bottom: 20px;
 }
 
+.membershipPeriod {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+}
+
 .cardLabelRow {
   display: flex;
   align-items: center;

@@ -162,11 +162,11 @@ export const no: Translation = {
     membership: {
       label: 'Årsmedlemskap',
       period: 'per år',
+      membershipPeriod: '1. august 2026 – 31. juli 2027',
       features: [
         'Treningsprogram',
         'Styrkeprogram for langrenn',
         'Digitale treningsøkter annenhver uke',
-        'Tett oppfølging fra trenerne',
         'Rabattert pris på alle samlinger',
         'Rabatterte priser på ski, staver, treningsbekledning og utstyr.',
         'Tilgang til treningsfellesskapet',

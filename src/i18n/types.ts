@@ -81,6 +81,7 @@ export interface Translation {
     membership: {
       label: string;
       period: string;
+      membershipPeriod: string;
       features: string[];
       cta: string;
     };

@@ -162,11 +162,11 @@ export const sv: Translation = {
     membership: {
       label: 'Årsmedlemskap',
       period: 'per år',
+      membershipPeriod: '1 augusti 2026 – 31 juli 2027',
       features: [
         'Träningsprogram',
         'Styrkeprogram för längdskidåkning',
         'Digitala träningspass varannan vecka',
-        'Tät uppföljning från tränarna',
         'Rabatterat pris på alla läger',
         'Rabatterade priser på skidor, stavar, träningskläder och utrustning.',
         'Tillgång till träningsgemenskapen',
