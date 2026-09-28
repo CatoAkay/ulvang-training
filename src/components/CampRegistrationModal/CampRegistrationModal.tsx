@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
-import { X, Send, CheckCircle, AlertTriangle, MapPin, Calendar, Users } from 'lucide-react';
+import { X, Send, CheckCircle, AlertTriangle, MapPin, Calendar, Users, Wallet, Home } from 'lucide-react';
 import type { CampRegistrationFormData } from '../../types';
 import type { CampEntry } from '../../data/camps';
 import { useLanguage } from '../../context/LanguageContext';
@@ -141,6 +141,29 @@ export default function CampRegistrationModal({ isOpen, onClose, camp }: Props) 
                 {!submitted ? (
                   <motion.div key={`form-${lang}-${camp.id}`} initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                     <p className={styles.formNote}>{cl.formNote}</p>
+
+                    {(cl.additionalCosts || cl.hotelResponsibilityNote || cl.cancellationPolicyNote) && (
+                      <div className={styles.policyNotes}>
+                        {cl.additionalCosts && (
+                          <div className={`${styles.policyNote} ${styles.policyNoteCosts}`}>
+                            <Wallet size={14} aria-hidden="true" />
+                            <span><strong>{m.additionalCostsLabel}</strong> {cl.additionalCosts}</span>
+                          </div>
+                        )}
+                        {cl.hotelResponsibilityNote && (
+                          <div className={`${styles.policyNote} ${styles.policyNoteHotel}`}>
+                            <Home size={14} aria-hidden="true" />
+                            <span><strong>{m.hotelResponsibilityLabel}</strong> {cl.hotelResponsibilityNote}</span>
+                          </div>
+                        )}
+                        {cl.cancellationPolicyNote && (
+                          <div className={`${styles.policyNote} ${styles.policyNoteCancellation}`}>
+                            <AlertTriangle size={14} aria-hidden="true" />
+                            <span><strong>{m.cancellationPolicyLabel}</strong> {cl.cancellationPolicyNote}</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
 
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       {/* Name row */}

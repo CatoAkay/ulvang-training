@@ -123,6 +123,9 @@ export interface Translation {
 
   campModal: {
     deadlineLabel: string;
+    additionalCostsLabel: string;
+    hotelResponsibilityLabel: string;
+    cancellationPolicyLabel: string;
     fields: {
       firstName: { label: string; placeholder: string; error: string };
       lastName: { label: string; placeholder: string; error: string };

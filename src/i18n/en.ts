@@ -285,6 +285,9 @@ export const en: Translation = {
 
   campModal: {
     deadlineLabel: 'Registration deadline:',
+    additionalCostsLabel: 'Additional costs (paid to the hotel):',
+    hotelResponsibilityLabel: 'Hotel booking & cancellation:',
+    cancellationPolicyLabel: 'Camp cancellation:',
     fields: {
       firstName: { label: 'First name', placeholder: 'John', error: 'First name is required' },
       lastName: { label: 'Last name', placeholder: 'Smith', error: 'Last name is required' },

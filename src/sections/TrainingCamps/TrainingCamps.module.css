@@ -137,7 +137,7 @@
 /* ── Camp cards grid (data-driven) ── */
 .campCardsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-bottom: 64px;
   position: relative;
@@ -465,6 +465,12 @@
 }
 
 /* Responsive */
+@media (max-width: 1180px) {
+  .campCardsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .campCardsGrid {
     grid-template-columns: 1fr;

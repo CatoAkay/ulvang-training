@@ -162,6 +162,61 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+/* ── Camp-specific policy notes (costs / hotel responsibility / cancellation) ── */
+.policyNotes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: -8px 0 28px;
+}
+
+.policyNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--color-text-2);
+}
+
+.policyNote svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.policyNote strong {
+  color: var(--color-text);
+}
+
+.policyNoteCosts {
+  background: rgba(91, 163, 201, 0.06);
+  border: 1px solid rgba(91, 163, 201, 0.18);
+}
+
+.policyNoteCosts svg {
+  color: var(--color-accent);
+}
+
+.policyNoteHotel {
+  background: rgba(150, 150, 160, 0.08);
+  border: 1px solid var(--color-border);
+}
+
+.policyNoteHotel svg {
+  color: var(--color-text-muted);
+}
+
+.policyNoteCancellation {
+  background: rgba(224, 150, 82, 0.08);
+  border: 1px solid rgba(224, 150, 82, 0.25);
+}
+
+.policyNoteCancellation svg {
+  color: #e09652;
+}
+
 /* ── Form layout ── */
 .row {
   display: grid;

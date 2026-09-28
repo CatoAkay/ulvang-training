@@ -20,6 +20,14 @@ export interface CampLocale {
   accommodationOptions: CampOption[];
   successSub: string;
 
+  // Optional camp-specific cost / policy notes, rendered as distinct blocks
+  // in the registration modal when present. Kept optional so existing
+  // camps (which embed this information inside formNote/accommodationHint)
+  // are unaffected.
+  additionalCosts?: string;          // e.g. meal / trail-pass costs paid directly to the hotel
+  hotelResponsibilityNote?: string;  // hotel booking & hotel-cancellation responsibility
+  cancellationPolicyNote?: string;   // XC Performance camp cancellation policy
+
   // Camp card display
   month: string;
   dateDisplay: string;       // e.g. "4.–6."
@@ -38,10 +46,11 @@ export interface CampEntry {
   emailCampName: string;
   modalEnabled: boolean;
   registrationOpen: boolean;
-  memberPrice: number;
-  nonMemberPrice: number;
-  singleDayMemberPrice: number;
-  singleDayNonMemberPrice: number;
+  // Optional: not all camps have a published XC Performance camp fee yet.
+  memberPrice?: number;
+  nonMemberPrice?: number;
+  singleDayMemberPrice?: number;
+  singleDayNonMemberPrice?: number;
   locale: Record<Lang, CampLocale>;
 }
 
@@ -336,6 +345,155 @@ export const CAMPS: CampEntry[] = [
         ctaLabel: 'Register',
         registrationSoonLabel: 'Registration opens 1 August',
         imgLabel: 'Winter camp 2027',
+      },
+    },
+  },
+
+  // ── Östersund – Early Snow (November) ──────────────────────────────────────
+  // A separate, new camp. Must not be confused with the January 'ostersund' camp above.
+  {
+    id: 'ostersund-november',
+    emailCampName: 'Östersund 27–29 November 2026',
+    modalEnabled: true,
+    registrationOpen: true,
+    locale: {
+      no: {
+        eyebrow: 'Påmelding',
+        title: 'Tidligsnøsamling 2026',
+        deadlineDate: '15. november 2026',
+        formNote:
+          'Alle felter merket * er påkrevd. Overnatting, mat og sporkort betales direkte til hotellet/deg – se kostnadsoversikt under.',
+        meta: {
+          date: '27.–29. november 2026',
+          location: 'Hotell Östersund, Sverige',
+          participants: 'Maks 30 deltakere',
+        },
+        arrivalHint: 'Oppmøte og felles oppstart fredag 27. november.',
+        accommodationHint:
+          'Overnatting betales direkte til hotellet. XC Performance fakturerer kun leirkostnader.',
+        arrivalOptions: [
+          { value: 'Fredag 27/11', label: 'Fredag 27. november' },
+        ],
+        accommodationOptions: [
+          { value: 'Enkeltrom, 1095 SEK/natt', label: 'Enkeltrom – 1 095 SEK/natt' },
+          { value: 'Dobbeltrom, 1195 SEK/natt', label: 'Dobbeltrom – 1 195 SEK/natt' },
+        ],
+        successSub:
+          'Takk for din påmelding til Tidligsnøsamlingen i Östersund 27.–29. november 2026. Vi tar kontakt med bekreftelse og praktisk informasjon.',
+        month: 'November 2026',
+        dateDisplay: '27.–29.',
+        locationDisplay: 'Östersund, Sverige',
+        duration: '3 dager',
+        description:
+          'Oppstart på snø med fokus på teknikk og utholdenhet. Faglig utbytte og sosialt fellesskap.',
+        highlights: [
+          'Samling på tidligsnø i Östersund',
+          'Teknikktrening på snø',
+          'Utholdenhetsøkter',
+          'Faglig utbytte og sosialt fellesskap',
+        ],
+        spotsLabel: 'Begrenset antall plasser',
+        ctaLabel: 'Sikre din plass',
+        registrationSoonLabel: 'Åpner snart',
+        imgLabel: 'Tidligsnøsamling 2026',
+        additionalCosts:
+          'Lunsj: 135 SEK. Middag: 165 SEK. Sporkort: 90 SEK. Alle beløp betales direkte til hotellet/arrangør, i tillegg til XC Performance sin leirpris.',
+        hotelResponsibilityNote:
+          'Booking av rom gjøres av den enkelte deltaker direkte hos Hotell Östersund. Alle deltakere er selv ansvarlig for avbestilling til hotellet dersom man ikke kommer likevel.',
+        cancellationPolicyNote:
+          'Ved avbestilling av samlingen etter 15. november må deltakeren dekke 50 % av XC Performance sin samlingspris.',
+      },
+      sv: {
+        eyebrow: 'Anmälan',
+        title: 'Tidigsnöläger 2026',
+        deadlineDate: '15 november 2026',
+        formNote:
+          'Alla fält markerade med * är obligatoriska. Boende, mat och spårkort betalas direkt till hotellet/dig – se kostnadsöversikt nedan.',
+        meta: {
+          date: '27–29 november 2026',
+          location: 'Hotell Östersund, Sverige',
+          participants: 'Max 30 deltagare',
+        },
+        arrivalHint: 'Ankomst och gemensam start fredag 27 november.',
+        accommodationHint:
+          'Boende betalas direkt till hotellet. XC Performance fakturerar endast lägerkostnader.',
+        arrivalOptions: [
+          { value: 'Fredag 27/11', label: 'Fredag 27 november' },
+        ],
+        accommodationOptions: [
+          { value: 'Enkeltrom, 1095 SEK/natt', label: 'Enkelrum – 1 095 SEK/natt' },
+          { value: 'Dobbeltrom, 1195 SEK/natt', label: 'Dubbelrum – 1 195 SEK/natt' },
+        ],
+        successSub:
+          'Tack för din anmälan till Tidigsnölägret i Östersund 27–29 november 2026. Vi återkommer med bekräftelse och praktisk information.',
+        month: 'November 2026',
+        dateDisplay: '27–29',
+        locationDisplay: 'Östersund, Sverige',
+        duration: '3 dagar',
+        description:
+          'Start på snö med fokus på teknik och uthållighet. Kunskapsutbyte och social gemenskap.',
+        highlights: [
+          'Läger på tidig snö i Östersund',
+          'Teknikträning på snö',
+          'Uthållighetspass',
+          'Kunskapsutbyte och social gemenskap',
+        ],
+        spotsLabel: 'Begränsat antal platser',
+        ctaLabel: 'Säkra din plats',
+        registrationSoonLabel: 'Öppnar snart',
+        imgLabel: 'Tidigsnöläger 2026',
+        additionalCosts:
+          'Lunch: 135 SEK. Middag: 165 SEK. Spårkort: 90 SEK. Alla belopp betalas direkt till hotellet/arrangören, utöver XC Performance lägeravgift.',
+        hotelResponsibilityNote:
+          'Bokning av rum görs av varje deltagare direkt hos Hotell Östersund. Alla deltagare ansvarar själva för avbokning till hotellet om man ändå inte kommer.',
+        cancellationPolicyNote:
+          'Vid avbokning av lägret efter 15 november måste deltagaren stå för 50 % av XC Performance lägerpris.',
+      },
+      en: {
+        eyebrow: 'Registration',
+        title: 'Early Snow Camp 2026',
+        deadlineDate: '15 November 2026',
+        formNote:
+          'All fields marked * are required. Accommodation, meals and trail pass are invoiced separately directly to the hotel/you – see the cost overview below.',
+        meta: {
+          date: '27–29 November 2026',
+          location: 'Hotell Östersund, Sweden',
+          participants: 'Max 30 participants',
+        },
+        arrivalHint: 'Arrival and joint start Friday, 27 November.',
+        accommodationHint:
+          'Accommodation is paid directly to the hotel. XC Performance invoices camp costs only.',
+        arrivalOptions: [
+          { value: 'Fredag 27/11', label: 'Friday, 27 November' },
+        ],
+        accommodationOptions: [
+          { value: 'Enkeltrom, 1095 SEK/natt', label: 'Single room – 1,095 SEK/night' },
+          { value: 'Dobbeltrom, 1195 SEK/natt', label: 'Double room – 1,195 SEK/night' },
+        ],
+        successSub:
+          'Thank you for registering for the Early Snow Camp in Östersund, 27–29 November 2026. We will be in touch with confirmation and practical information.',
+        month: 'November 2026',
+        dateDisplay: '27–29',
+        locationDisplay: 'Östersund, Sweden',
+        duration: '3 days',
+        description:
+          'An early start on snow with a focus on technique and endurance. Professional development and social community.',
+        highlights: [
+          'Early-season snow camp in Östersund',
+          'On-snow technique training',
+          'Endurance sessions',
+          'Professional development and social community',
+        ],
+        spotsLabel: 'Limited spots available',
+        ctaLabel: 'Secure your spot',
+        registrationSoonLabel: 'Opening soon',
+        imgLabel: 'Early Snow Camp 2026',
+        additionalCosts:
+          'Lunch: 135 SEK. Dinner: 165 SEK. Trail pass: 90 SEK. All amounts are paid directly to the hotel/organiser, in addition to the XC Performance camp fee.',
+        hotelResponsibilityNote:
+          'Room bookings are made individually by each participant directly with Hotell Östersund. All participants are themselves responsible for cancelling their hotel booking if they are unable to attend.',
+        cancellationPolicyNote:
+          'If the camp registration is cancelled after 15 November, the participant must cover 50% of the XC Performance camp fee.',
       },
     },
   },

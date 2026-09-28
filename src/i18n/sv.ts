@@ -285,6 +285,9 @@ export const sv: Translation = {
 
   campModal: {
     deadlineLabel: 'Anmälningsdeadline:',
+    additionalCostsLabel: 'Tillkommande kostnader (betalas till hotellet):',
+    hotelResponsibilityLabel: 'Hotellbokning och avbokning:',
+    cancellationPolicyLabel: 'Avbokning av lägret:',
     fields: {
       firstName: { label: 'Förnamn', placeholder: 'Erik', error: 'Förnamn är obligatoriskt' },
       lastName: { label: 'Efternamn', placeholder: 'Svensson', error: 'Efternamn är obligatoriskt' },

@@ -285,6 +285,9 @@ export const no: Translation = {
 
   campModal: {
     deadlineLabel: 'Påmeldingsfrist:',
+    additionalCostsLabel: 'Tilleggskostnader (betales til hotellet):',
+    hotelResponsibilityLabel: 'Hotellbooking og avbestilling:',
+    cancellationPolicyLabel: 'Avbestilling av samlingen:',
     fields: {
       firstName: { label: 'Fornavn', placeholder: 'Ola', error: 'Fornavn er påkrevd' },
       lastName: { label: 'Etternavn', placeholder: 'Nordmann', error: 'Etternavn er påkrevd' },
