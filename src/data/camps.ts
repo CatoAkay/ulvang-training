@@ -368,10 +368,11 @@ export const CAMPS: CampEntry[] = [
           location: 'Hotell Östersund, Sverige',
           participants: 'Maks 30 deltakere',
         },
-        arrivalHint: 'Oppmøte og felles oppstart fredag 27. november.',
+        arrivalHint: 'Oppmøte og felles oppstart fredag 27. november. Valgfri ankomst kvelden før, torsdag 26. november, for de som ønsker det.',
         accommodationHint:
           'Overnatting betales direkte til hotellet. XC Performance fakturerer kun leirkostnader.',
         arrivalOptions: [
+          { value: 'Torsdag 26/11', label: 'Torsdag 26. november' },
           { value: 'Fredag 27/11', label: 'Fredag 27. november' },
         ],
         accommodationOptions: [
@@ -414,10 +415,11 @@ export const CAMPS: CampEntry[] = [
           location: 'Hotell Östersund, Sverige',
           participants: 'Max 30 deltagare',
         },
-        arrivalHint: 'Ankomst och gemensam start fredag 27 november.',
+        arrivalHint: 'Ankomst och gemensam start fredag 27 november. Valfri ankomst kvällen innan, torsdag 26 november, för de som önskar.',
         accommodationHint:
           'Boende betalas direkt till hotellet. XC Performance fakturerar endast lägerkostnader.',
         arrivalOptions: [
+          { value: 'Torsdag 26/11', label: 'Torsdag 26 november' },
           { value: 'Fredag 27/11', label: 'Fredag 27 november' },
         ],
         accommodationOptions: [
@@ -460,10 +462,11 @@ export const CAMPS: CampEntry[] = [
           location: 'Hotell Östersund, Sweden',
           participants: 'Max 30 participants',
         },
-        arrivalHint: 'Arrival and joint start Friday, 27 November.',
+        arrivalHint: 'Arrival and joint start Friday, 27 November. Optional early arrival the evening before, Thursday 26 November, for those who prefer it.',
         accommodationHint:
           'Accommodation is paid directly to the hotel. XC Performance invoices camp costs only.',
         arrivalOptions: [
+          { value: 'Torsdag 26/11', label: 'Thursday 26 November' },
           { value: 'Fredag 27/11', label: 'Friday, 27 November' },
         ],
         accommodationOptions: [
