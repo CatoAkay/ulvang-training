@@ -400,7 +400,7 @@ export const CAMPS: CampEntry[] = [
         additionalCosts:
           'Lunsj: 135 SEK. Middag: 165 SEK. Sporkort: 90 SEK. Alle beløp betales direkte til hotellet/arrangør, i tillegg til XC Performance sin leirpris.',
         hotelResponsibilityNote:
-          'Booking av rom gjøres av den enkelte deltaker direkte hos Hotell Östersund. Alle deltakere er selv ansvarlig for avbestilling til hotellet dersom man ikke kommer likevel.',
+          'XC Performance bestiller hotellrom for deltakerne. Du trenger derfor ikke å bestille rom direkte hos hotellet selv. Dersom du likevel ikke kan delta, er du selv ansvarlig for å kontakte hotellet og avbestille rommet.',
         cancellationPolicyNote:
           'Ved avbestilling av samlingen etter 15. november må deltakeren dekke 50 % av XC Performance sin samlingspris.',
       },
@@ -447,7 +447,7 @@ export const CAMPS: CampEntry[] = [
         additionalCosts:
           'Lunch: 135 SEK. Middag: 165 SEK. Spårkort: 90 SEK. Alla belopp betalas direkt till hotellet/arrangören, utöver XC Performance lägeravgift.',
         hotelResponsibilityNote:
-          'Bokning av rum görs av varje deltagare direkt hos Hotell Östersund. Alla deltagare ansvarar själva för avbokning till hotellet om man ändå inte kommer.',
+          'XC Performance bokar hotellrum för deltagarna. Du behöver därför inte boka rum direkt med hotellet själv. Om du senare inte kan delta ansvarar du själv för att kontakta hotellet och avboka rummet.',
         cancellationPolicyNote:
           'Vid avbokning av lägret efter 15 november måste deltagaren stå för 50 % av XC Performance lägerpris.',
       },
@@ -494,7 +494,7 @@ export const CAMPS: CampEntry[] = [
         additionalCosts:
           'Lunch: 135 SEK. Dinner: 165 SEK. Trail pass: 90 SEK. All amounts are paid directly to the hotel/organiser, in addition to the XC Performance camp fee.',
         hotelResponsibilityNote:
-          'Room bookings are made individually by each participant directly with Hotell Östersund. All participants are themselves responsible for cancelling their hotel booking if they are unable to attend.',
+          'XC Performance books the hotel accommodation for participants, so you do not need to make a reservation directly with the hotel. If you are later unable to attend, you are responsible for contacting the hotel and cancelling your room.',
         cancellationPolicyNote:
           'If the camp registration is cancelled after 15 November, the participant must cover 50% of the XC Performance camp fee.',
       },
